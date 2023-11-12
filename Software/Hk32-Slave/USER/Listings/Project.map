@@ -1,0 +1,1621 @@
+Component: ARM Compiler 5.06 update 7 (build 960) Tool: armlink [4d3601]
+
+==============================================================================
+
+Section Cross References
+
+    system_process.o(i.read_data) refers to sys_ringbuffer.o(i.ring_buf_get) for ring_buf_get
+    system_process.o(i.read_data) refers to system_process.o(.bss) for slave_ringbuf
+    system_process.o(i.slave_init) refers to sys_ringbuffer.o(i.ring_buf_init) for ring_buf_init
+    system_process.o(i.slave_init) refers to system_process.o(.bss) for slave_ringbufer
+    system_process.o(i.slave_put) refers to sys_ringbuffer.o(i.ring_buf_put) for ring_buf_put
+    system_process.o(i.slave_put) refers to system_process.o(.bss) for slave_ringbuf
+    system_process.o(i.slave_recv_data) refers to modulator.o(i.modulator_ctrl) for modulator_ctrl
+    system_process.o(i.slave_recv_data) refers to sys_power.o(i.system_power_enable) for system_power_enable
+    system_process.o(i.slave_recv_data) refers to sys_power.o(i.system_power_disable) for system_power_disable
+    system_process.o(i.slave_recv_data) refers to sys_power.o(i.get_bat_leave) for get_bat_leave
+    system_process.o(i.slave_recv_data) refers to system_process.o(i.slave_send_data) for slave_send_data
+    system_process.o(i.slave_recv_data) refers to charge_detection.o(i.get_charge_status) for get_charge_status
+    system_process.o(i.slave_recv_data) refers to sys_power.o(i.system_usb_enable) for system_usb_enable
+    system_process.o(i.slave_recv_data) refers to sys_power.o(i.system_usb_disable) for system_usb_disable
+    system_process.o(i.slave_recv_data) refers to system_process.o(.bss) for recv_buf
+    system_process.o(i.slave_recv_data) refers to system_process.o(.data) for send_buf
+    system_process.o(i.slave_recv_process) refers to sys_time.o(i.get_sys_tick) for get_sys_tick
+    system_process.o(i.slave_recv_process) refers to system_process.o(i.slave_recv_data) for slave_recv_data
+    system_process.o(i.slave_recv_process) refers to rt_memclr.o(.text) for __aeabi_memclr4
+    system_process.o(i.slave_recv_process) refers to system_process.o(i.read_data) for read_data
+    system_process.o(i.slave_recv_process) refers to sys_time.o(i.is_timeout) for is_timeout
+    system_process.o(i.slave_recv_process) refers to system_process.o(.data) for recv_tick
+    system_process.o(i.slave_recv_process) refers to system_process.o(.bss) for recv_buf
+    system_process.o(i.slave_send_data) refers to drv_usart.o(i.usart_send_bytes) for usart_send_bytes
+    system_process.o(i.system_process) refers to system_process.o(i.slave_recv_process) for slave_recv_process
+    main.o(i.main) refers to drv_systick.o(i.systick_init) for systick_init
+    main.o(i.main) refers to drv_gpio.o(i.sys_board_gpio_init) for sys_board_gpio_init
+    main.o(i.main) refers to drv_pwm.o(i.pwm_init) for pwm_init
+    main.o(i.main) refers to drv_adc.o(i.adc_init) for adc_init
+    main.o(i.main) refers to drv_usart.o(i.uart_init) for uart_init
+    main.o(i.main) refers to main.o(i.task_start) for task_start
+    main.o(i.main) refers to system_process.o(i.slave_init) for slave_init
+    main.o(i.main) refers to sys_task.o(i.sys_task_process) for sys_task_process
+    main.o(i.task_start) refers to sys_task.o(i.sys_task_create) for sys_task_create
+    main.o(i.task_start) refers to sys_task.o(i.sys_task_start) for sys_task_start
+    main.o(i.task_start) refers to charge_detection.o(i.charge_detection_process) for charge_detection_process
+    main.o(i.task_start) refers to main.o(.bss) for charge_detection_task
+    main.o(i.task_start) refers to modulator.o(i.modulator_process) for modulator_process
+    main.o(i.task_start) refers to system_process.o(i.system_process) for system_process
+    drv_adc.o(i.adc_gpio_init) refers to hk32f030m_rcc.o(i.RCC_AHBPeriphClockCmd) for RCC_AHBPeriphClockCmd
+    drv_adc.o(i.adc_gpio_init) refers to hk32f030m_gpio.o(i.GPIO_Init) for GPIO_Init
+    drv_adc.o(i.adc_gpio_init) refers to hk32f030m_gpio.o(i.GPIO_PinAFConfig) for GPIO_PinAFConfig
+    drv_adc.o(i.adc_init) refers to hk32f030m_rcc.o(i.RCC_APB2PeriphClockCmd) for RCC_APB2PeriphClockCmd
+    drv_adc.o(i.adc_init) refers to hk32f030m_adc.o(i.ADC_DeInit) for ADC_DeInit
+    drv_adc.o(i.adc_init) refers to hk32f030m_adc.o(i.ADC_StructInit) for ADC_StructInit
+    drv_adc.o(i.adc_init) refers to hk32f030m_adc.o(i.ADC_Init) for ADC_Init
+    drv_adc.o(i.adc_init) refers to hk32f030m_adc.o(i.ADC_ChannelConfig) for ADC_ChannelConfig
+    drv_adc.o(i.adc_init) refers to hk32f030m_adc.o(i.ADC_Cmd) for ADC_Cmd
+    drv_adc.o(i.adc_init) refers to hk32f030m_adc.o(i.ADC_GetFlagStatus) for ADC_GetFlagStatus
+    drv_adc.o(i.adc_init) refers to hk32f030m_adc.o(i.ADC_StartOfConversion) for ADC_StartOfConversion
+    drv_adc.o(i.get_adc) refers to hk32f030m_adc.o(i.ADC_GetFlagStatus) for ADC_GetFlagStatus
+    drv_adc.o(i.get_adc) refers to hk32f030m_adc.o(i.ADC_GetConversionValue) for ADC_GetConversionValue
+    drv_adc.o(i.get_adc_average) refers to drv_adc.o(i.get_adc) for get_adc
+    drv_adc.o(i.get_adc_average) refers to aeabi_sdiv.o(.text) for __aeabi_uidivmod
+    drv_gpio.o(i.sys_board_gpio_init) refers to charge_detection.o(i.charge_detection_gpio_init) for charge_detection_gpio_init
+    drv_gpio.o(i.sys_board_gpio_init) refers to sys_power.o(i.pd_usb_gpio_init) for pd_usb_gpio_init
+    drv_gpio.o(i.sys_board_gpio_init) refers to sys_power.o(i.sys_power_gpio_init) for sys_power_gpio_init
+    drv_gpio.o(i.sys_board_gpio_init) refers to drv_pwm.o(i.pwm_gpio_init) for pwm_gpio_init
+    drv_gpio.o(i.sys_board_gpio_init) refers to drv_adc.o(i.adc_gpio_init) for adc_gpio_init
+    drv_systick.o(i.SysTick_Handler) refers to sys_time.o(i.sys_tick_count) for sys_tick_count
+    drv_systick.o(i.systick_init) refers to hk32f030m_misc.o(i.SysTick_CLKSourceConfig) for SysTick_CLKSourceConfig
+    drv_systick.o(i.systick_init) refers to drv_systick.o(i.NVIC_SetPriority) for NVIC_SetPriority
+    drv_usart.o(i.USART1_IRQHandler) refers to hk32f030m_usart.o(i.USART_GetITStatus) for USART_GetITStatus
+    drv_usart.o(i.USART1_IRQHandler) refers to hk32f030m_usart.o(i.USART_ReceiveData) for USART_ReceiveData
+    drv_usart.o(i.USART1_IRQHandler) refers to system_process.o(i.slave_put) for slave_put
+    drv_usart.o(i.USART1_IRQHandler) refers to hk32f030m_usart.o(i.USART_GetFlagStatus) for USART_GetFlagStatus
+    drv_usart.o(i.USART1_IRQHandler) refers to hk32f030m_usart.o(i.USART_ClearFlag) for USART_ClearFlag
+    drv_usart.o(i.uart_init) refers to hk32f030m_rcc.o(i.RCC_AHBPeriphClockCmd) for RCC_AHBPeriphClockCmd
+    drv_usart.o(i.uart_init) refers to hk32f030m_rcc.o(i.RCC_APB2PeriphClockCmd) for RCC_APB2PeriphClockCmd
+    drv_usart.o(i.uart_init) refers to hk32f030m_gpio.o(i.GPIO_PinAFConfig) for GPIO_PinAFConfig
+    drv_usart.o(i.uart_init) refers to hk32f030m_gpio.o(i.GPIO_Init) for GPIO_Init
+    drv_usart.o(i.uart_init) refers to hk32f030m_usart.o(i.USART_Init) for USART_Init
+    drv_usart.o(i.uart_init) refers to hk32f030m_usart.o(i.USART_ITConfig) for USART_ITConfig
+    drv_usart.o(i.uart_init) refers to hk32f030m_usart.o(i.USART_Cmd) for USART_Cmd
+    drv_usart.o(i.uart_init) refers to hk32f030m_misc.o(i.NVIC_Init) for NVIC_Init
+    drv_usart.o(i.usart_send_bytes) refers to hk32f030m_usart.o(i.USART_GetFlagStatus) for USART_GetFlagStatus
+    drv_usart.o(i.usart_send_bytes) refers to hk32f030m_usart.o(i.USART_SendData) for USART_SendData
+    drv_pwm.o(i.pwm_gpio_init) refers to hk32f030m_rcc.o(i.RCC_AHBPeriphClockCmd) for RCC_AHBPeriphClockCmd
+    drv_pwm.o(i.pwm_gpio_init) refers to hk32f030m_gpio.o(i.GPIO_PinAFConfig) for GPIO_PinAFConfig
+    drv_pwm.o(i.pwm_gpio_init) refers to hk32f030m_gpio.o(i.GPIO_Init) for GPIO_Init
+    drv_pwm.o(i.pwm_init) refers to hk32f030m_rcc.o(i.RCC_APB1PeriphClockCmd) for RCC_APB1PeriphClockCmd
+    drv_pwm.o(i.pwm_init) refers to hk32f030m_rcc.o(i.RCC_APB2PeriphClockCmd) for RCC_APB2PeriphClockCmd
+    drv_pwm.o(i.pwm_init) refers to hk32f030m_tim.o(i.TIM_TimeBaseInit) for TIM_TimeBaseInit
+    drv_pwm.o(i.pwm_init) refers to hk32f030m_tim.o(i.TIM_OC1Init) for TIM_OC1Init
+    drv_pwm.o(i.pwm_init) refers to hk32f030m_tim.o(i.TIM_OC1PreloadConfig) for TIM_OC1PreloadConfig
+    drv_pwm.o(i.pwm_init) refers to hk32f030m_tim.o(i.TIM_OC2Init) for TIM_OC2Init
+    drv_pwm.o(i.pwm_init) refers to hk32f030m_tim.o(i.TIM_OC2PreloadConfig) for TIM_OC2PreloadConfig
+    drv_pwm.o(i.pwm_init) refers to hk32f030m_tim.o(i.TIM_OC3Init) for TIM_OC3Init
+    drv_pwm.o(i.pwm_init) refers to hk32f030m_tim.o(i.TIM_OC3PreloadConfig) for TIM_OC3PreloadConfig
+    drv_pwm.o(i.pwm_init) refers to hk32f030m_tim.o(i.TIM_OC4Init) for TIM_OC4Init
+    drv_pwm.o(i.pwm_init) refers to hk32f030m_tim.o(i.TIM_OC4PreloadConfig) for TIM_OC4PreloadConfig
+    drv_pwm.o(i.pwm_init) refers to hk32f030m_tim.o(i.TIM_Cmd) for TIM_Cmd
+    drv_pwm.o(i.pwm_init) refers to hk32f030m_tim.o(i.TIM_CtrlPWMOutputs) for TIM_CtrlPWMOutputs
+    drv_pwm.o(i.set_pwm_duty_cycle) refers to drv_pwm.o(i.__ARM_common_switch8) for __ARM_common_switch8
+    drv_pwm.o(i.set_pwm_duty_cycle) refers to hk32f030m_tim.o(i.TIM_SetCompare1) for TIM_SetCompare1
+    drv_pwm.o(i.set_pwm_duty_cycle) refers to hk32f030m_tim.o(i.TIM_SetCompare4) for TIM_SetCompare4
+    drv_pwm.o(i.set_pwm_duty_cycle) refers to hk32f030m_tim.o(i.TIM_SetCompare2) for TIM_SetCompare2
+    sys_power.o(i.get_bat_leave) refers to drv_adc.o(i.get_adc_average) for get_adc_average
+    sys_power.o(i.pd_usb_gpio_init) refers to hk32f030m_rcc.o(i.RCC_AHBPeriphClockCmd) for RCC_AHBPeriphClockCmd
+    sys_power.o(i.pd_usb_gpio_init) refers to hk32f030m_gpio.o(i.GPIO_Init) for GPIO_Init
+    sys_power.o(i.sys_power_gpio_init) refers to hk32f030m_rcc.o(i.RCC_AHBPeriphClockCmd) for RCC_AHBPeriphClockCmd
+    sys_power.o(i.sys_power_gpio_init) refers to hk32f030m_gpio.o(i.GPIO_Init) for GPIO_Init
+    sys_power.o(i.sys_power_gpio_init) refers to sys_power.o(i.system_power_disable) for system_power_disable
+    sys_power.o(i.system_power_disable) refers to hk32f030m_gpio.o(i.GPIO_ResetBits) for GPIO_ResetBits
+    sys_power.o(i.system_power_enable) refers to hk32f030m_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    sys_power.o(i.system_usb_disable) refers to hk32f030m_gpio.o(i.GPIO_ResetBits) for GPIO_ResetBits
+    sys_power.o(i.system_usb_enable) refers to hk32f030m_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    charge_detection.o(i.charge_detection_gpio_init) refers to hk32f030m_rcc.o(i.RCC_AHBPeriphClockCmd) for RCC_AHBPeriphClockCmd
+    charge_detection.o(i.charge_detection_gpio_init) refers to hk32f030m_gpio.o(i.GPIO_Init) for GPIO_Init
+    charge_detection.o(i.charge_detection_process) refers to charge_detection.o(i.get_charge_status) for get_charge_status
+    charge_detection.o(i.charge_detection_process) refers to charge_detection.o(i.send_charge_detection) for send_charge_detection
+    charge_detection.o(i.charge_detection_process) refers to charge_detection.o(.data) for low_cnt
+    charge_detection.o(i.get_charge_status) refers to hk32f030m_gpio.o(i.GPIO_ReadInputDataBit) for GPIO_ReadInputDataBit
+    charge_detection.o(i.send_charge_detection) refers to drv_usart.o(i.usart_send_bytes) for usart_send_bytes
+    modulator.o(i.modulator_ctrl) refers to modulator.o(.data) for target_port
+    modulator.o(i.modulator_process) refers to aeabi_sdiv.o(.text) for __aeabi_idivmod
+    modulator.o(i.modulator_process) refers to drv_pwm.o(i.set_pwm_duty_cycle) for set_pwm_duty_cycle
+    modulator.o(i.modulator_process) refers to modulator.o(.data) for warm
+    hk32f030m_adc.o(i.ADC_DeInit) refers to hk32f030m_rcc.o(i.RCC_APB2PeriphResetCmd) for RCC_APB2PeriphResetCmd
+    hk32f030m_flash.o(i.EEPROM_EraseByte) refers to hk32f030m_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    hk32f030m_flash.o(i.EEPROM_ProgramByte) refers to hk32f030m_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    hk32f030m_flash.o(i.FLASH_EraseAllPages) refers to hk32f030m_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    hk32f030m_flash.o(i.FLASH_ErasePage) refers to hk32f030m_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    hk32f030m_flash.o(i.FLASH_OB_DBGCLKConfig) refers to hk32f030m_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    hk32f030m_flash.o(i.FLASH_OB_EraseByte) refers to hk32f030m_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    hk32f030m_flash.o(i.FLASH_OB_IWDG_RLRConfig) refers to hk32f030m_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    hk32f030m_flash.o(i.FLASH_OB_LSILPConfig) refers to hk32f030m_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    hk32f030m_flash.o(i.FLASH_OB_ProgramData) refers to hk32f030m_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    hk32f030m_flash.o(i.FLASH_OB_RDPConfig) refers to hk32f030m_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    hk32f030m_flash.o(i.FLASH_OB_UserConfig) refers to hk32f030m_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    hk32f030m_flash.o(i.FLASH_OB_WRPConfig) refers to hk32f030m_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    hk32f030m_flash.o(i.FLASH_OB_WriteUser) refers to hk32f030m_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    hk32f030m_flash.o(i.FLASH_ProgramByte) refers to hk32f030m_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    hk32f030m_flash.o(i.FLASH_ProgramHalfWord) refers to hk32f030m_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    hk32f030m_flash.o(i.FLASH_WaitForLastOperation) refers to hk32f030m_flash.o(i.FLASH_GetStatus) for FLASH_GetStatus
+    hk32f030m_gpio.o(i.GPIO_DeInit) refers to hk32f030m_rcc.o(i.RCC_AHBPeriphResetCmd) for RCC_AHBPeriphResetCmd
+    hk32f030m_gpio.o(i.GPIO_IOMUX_ChangePin) refers to drv_pwm.o(i.__ARM_common_switch8) for __ARM_common_switch8
+    hk32f030m_i2c.o(i.I2C_DeInit) refers to hk32f030m_rcc.o(i.RCC_APB1PeriphResetCmd) for RCC_APB1PeriphResetCmd
+    hk32f030m_pwr.o(i.PWR_DeInit) refers to hk32f030m_rcc.o(i.RCC_APB1PeriphResetCmd) for RCC_APB1PeriphResetCmd
+    hk32f030m_pwr.o(i.PWR_EnterDeepSleepMode) refers to hk32f030m_pwr.o(i.Sysclk_SwitchToLSI) for Sysclk_SwitchToLSI
+    hk32f030m_pwr.o(i.PWR_EnterDeepSleepMode) refers to hk32f030m_pwr.o(i.PWR_EnterSleepMode) for PWR_EnterSleepMode
+    hk32f030m_pwr.o(i.PWR_EnterStopMode) refers to hk32f030m_exti.o(i.EXTI_GetFlagStatus) for EXTI_GetFlagStatus
+    hk32f030m_pwr.o(i.PWR_EnterStopMode) refers to hk32f030m_exti.o(i.EXTI_ClearFlag) for EXTI_ClearFlag
+    hk32f030m_pwr.o(i.Sysclk_SwitchToLSI) refers to hk32f030m_rcc.o(i.RCC_LSICmd) for RCC_LSICmd
+    hk32f030m_pwr.o(i.Sysclk_SwitchToLSI) refers to hk32f030m_rcc.o(i.RCC_GetFlagStatus) for RCC_GetFlagStatus
+    hk32f030m_pwr.o(i.Sysclk_SwitchToLSI) refers to hk32f030m_rcc.o(i.RCC_HSICmd) for RCC_HSICmd
+    hk32f030m_rcc.o(i.RCC_EXTCmd) refers to hk32f030m_rcc.o(i.RCC_AHBPeriphClockCmd) for RCC_AHBPeriphClockCmd
+    hk32f030m_rcc.o(i.RCC_EXTCmd) refers to hk32f030m_gpio.o(i.GPIO_Init) for GPIO_Init
+    hk32f030m_rcc.o(i.RCC_GetClocksFreq) refers to aeabi_sdiv.o(.text) for __aeabi_uidivmod
+    hk32f030m_rcc.o(i.RCC_GetClocksFreq) refers to hk32f030m_rcc.o(.constdata) for AHBPrescTable
+    hk32f030m_rcc.o(i.RCC_WaitForStartUp) refers to hk32f030m_rcc.o(i.RCC_GetFlagStatus) for RCC_GetFlagStatus
+    hk32f030m_spi.o(i.I2S_Init) refers to hk32f030m_rcc.o(i.RCC_GetClocksFreq) for RCC_GetClocksFreq
+    hk32f030m_spi.o(i.I2S_Init) refers to aeabi_sdiv.o(.text) for __aeabi_uidivmod
+    hk32f030m_spi.o(i.SPI_I2S_DeInit) refers to hk32f030m_rcc.o(i.RCC_APB2PeriphResetCmd) for RCC_APB2PeriphResetCmd
+    hk32f030m_syscfg.o(i.SYSCFG_DeInit) refers to hk32f030m_rcc.o(i.RCC_APB2PeriphResetCmd) for RCC_APB2PeriphResetCmd
+    hk32f030m_tim.o(i.TIM_DeInit) refers to hk32f030m_rcc.o(i.RCC_APB2PeriphResetCmd) for RCC_APB2PeriphResetCmd
+    hk32f030m_tim.o(i.TIM_DeInit) refers to hk32f030m_rcc.o(i.RCC_APB1PeriphResetCmd) for RCC_APB1PeriphResetCmd
+    hk32f030m_tim.o(i.TIM_ETRClockMode1Config) refers to hk32f030m_tim.o(i.TIM_ETRConfig) for TIM_ETRConfig
+    hk32f030m_tim.o(i.TIM_ETRClockMode2Config) refers to hk32f030m_tim.o(i.TIM_ETRConfig) for TIM_ETRConfig
+    hk32f030m_tim.o(i.TIM_ICInit) refers to hk32f030m_tim.o(i.TI1_Config) for TI1_Config
+    hk32f030m_tim.o(i.TIM_ICInit) refers to hk32f030m_tim.o(i.TIM_SetIC1Prescaler) for TIM_SetIC1Prescaler
+    hk32f030m_tim.o(i.TIM_ICInit) refers to hk32f030m_tim.o(i.TI2_Config) for TI2_Config
+    hk32f030m_tim.o(i.TIM_ICInit) refers to hk32f030m_tim.o(i.TIM_SetIC2Prescaler) for TIM_SetIC2Prescaler
+    hk32f030m_tim.o(i.TIM_ICInit) refers to hk32f030m_tim.o(i.TI3_Config) for TI3_Config
+    hk32f030m_tim.o(i.TIM_ICInit) refers to hk32f030m_tim.o(i.TIM_SetIC3Prescaler) for TIM_SetIC3Prescaler
+    hk32f030m_tim.o(i.TIM_ICInit) refers to hk32f030m_tim.o(i.TI4_Config) for TI4_Config
+    hk32f030m_tim.o(i.TIM_ICInit) refers to hk32f030m_tim.o(i.TIM_SetIC4Prescaler) for TIM_SetIC4Prescaler
+    hk32f030m_tim.o(i.TIM_ITRxExternalClockConfig) refers to hk32f030m_tim.o(i.TIM_SelectInputTrigger) for TIM_SelectInputTrigger
+    hk32f030m_tim.o(i.TIM_PWMIConfig) refers to hk32f030m_tim.o(i.TI1_Config) for TI1_Config
+    hk32f030m_tim.o(i.TIM_PWMIConfig) refers to hk32f030m_tim.o(i.TIM_SetIC1Prescaler) for TIM_SetIC1Prescaler
+    hk32f030m_tim.o(i.TIM_PWMIConfig) refers to hk32f030m_tim.o(i.TI2_Config) for TI2_Config
+    hk32f030m_tim.o(i.TIM_PWMIConfig) refers to hk32f030m_tim.o(i.TIM_SetIC2Prescaler) for TIM_SetIC2Prescaler
+    hk32f030m_tim.o(i.TIM_TIxExternalClockConfig) refers to hk32f030m_tim.o(i.TI2_Config) for TI2_Config
+    hk32f030m_tim.o(i.TIM_TIxExternalClockConfig) refers to hk32f030m_tim.o(i.TI1_Config) for TI1_Config
+    hk32f030m_tim.o(i.TIM_TIxExternalClockConfig) refers to hk32f030m_tim.o(i.TIM_SelectInputTrigger) for TIM_SelectInputTrigger
+    hk32f030m_usart.o(i.USART_DeInit) refers to hk32f030m_rcc.o(i.RCC_APB2PeriphResetCmd) for RCC_APB2PeriphResetCmd
+    hk32f030m_usart.o(i.USART_Init) refers to hk32f030m_rcc.o(i.RCC_GetClocksFreq) for RCC_GetClocksFreq
+    hk32f030m_usart.o(i.USART_Init) refers to aeabi_sdiv.o(.text) for __aeabi_uidivmod
+    hk32f030m_wwdg.o(i.WWDG_DeInit) refers to hk32f030m_rcc.o(i.RCC_APB1PeriphResetCmd) for RCC_APB1PeriphResetCmd
+    keil_startup_hk32f030m.o(STACK) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    keil_startup_hk32f030m.o(HEAP) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    keil_startup_hk32f030m.o(RESET) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    keil_startup_hk32f030m.o(RESET) refers to keil_startup_hk32f030m.o(STACK) for __initial_sp
+    keil_startup_hk32f030m.o(RESET) refers to keil_startup_hk32f030m.o(.text) for Reset_Handler
+    keil_startup_hk32f030m.o(RESET) refers to hk32f030m_it.o(i.NMI_Handler) for NMI_Handler
+    keil_startup_hk32f030m.o(RESET) refers to hk32f030m_it.o(i.HardFault_Handler) for HardFault_Handler
+    keil_startup_hk32f030m.o(RESET) refers to hk32f030m_it.o(i.SVC_Handler) for SVC_Handler
+    keil_startup_hk32f030m.o(RESET) refers to hk32f030m_it.o(i.PendSV_Handler) for PendSV_Handler
+    keil_startup_hk32f030m.o(RESET) refers to drv_systick.o(i.SysTick_Handler) for SysTick_Handler
+    keil_startup_hk32f030m.o(RESET) refers to drv_usart.o(i.USART1_IRQHandler) for USART1_IRQHandler
+    keil_startup_hk32f030m.o(.text) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    keil_startup_hk32f030m.o(.text) refers to system_hk32f030m.o(i.SystemInit) for SystemInit
+    keil_startup_hk32f030m.o(.text) refers to __main.o(!!!main) for __main
+    keil_startup_hk32f030m.o(.text) refers to keil_startup_hk32f030m.o(HEAP) for Heap_Mem
+    keil_startup_hk32f030m.o(.text) refers to keil_startup_hk32f030m.o(STACK) for Stack_Mem
+    system_hk32f030m.o(i.SetSysClock) refers to system_hk32f030m.o(i.SetSysClockToHSI_32M) for SetSysClockToHSI_32M
+    system_hk32f030m.o(i.SystemCoreClockUpdate) refers to aeabi_sdiv.o(.text) for __aeabi_uidivmod
+    system_hk32f030m.o(i.SystemCoreClockUpdate) refers to system_hk32f030m.o(.data) for SystemCoreClock
+    system_hk32f030m.o(i.SystemCoreClockUpdate) refers to hk32f030m_rcc.o(.constdata) for AHBPrescTable
+    system_hk32f030m.o(i.SystemInit) refers to system_hk32f030m.o(i.SetSysClock) for SetSysClock
+    sys_blink.o(i.blink_dev_create) refers to rt_memclr.o(.text) for __aeabi_memclr4
+    sys_blink.o(i.blink_dev_create) refers to sys_blink.o(.data) for head
+    sys_blink.o(i.blink_dev_ctrl) refers to sys_time.o(i.get_sys_tick) for get_sys_tick
+    sys_blink.o(i.blink_dev_process) refers to sys_time.o(i.get_sys_tick) for get_sys_tick
+    sys_blink.o(i.blink_dev_process) refers to sys_blink.o(.data) for head
+    sys_keyinput.o(i.key_dev_create) refers to sys_keyinput.o(.data) for keynput_head
+    sys_keyinput.o(i.keyinput_process) refers to sys_time.o(i.is_timeout) for is_timeout
+    sys_keyinput.o(i.keyinput_process) refers to sys_time.o(i.get_sys_tick) for get_sys_tick
+    sys_keyinput.o(i.keyinput_process) refers to aeabi_sdiv.o(.text) for __aeabi_uidivmod
+    sys_keyinput.o(i.keyinput_process) refers to sys_keyinput.o(.data) for keynput_head
+    sys_ringbuffer.o(i.ring_buf_get) refers to rt_memcpy.o(.text) for __aeabi_memcpy
+    sys_ringbuffer.o(i.ring_buf_put) refers to rt_memcpy.o(.text) for __aeabi_memcpy
+    sys_task.o(i.sys_task_create) refers to rt_memclr.o(.text) for __aeabi_memclr4
+    sys_task.o(i.sys_task_create) refers to sys_time.o(i.get_sys_tick) for get_sys_tick
+    sys_task.o(i.sys_task_create) refers to sys_task.o(.data) for sys_task_head
+    sys_task.o(i.sys_task_process) refers to sys_time.o(i.is_timeout) for is_timeout
+    sys_task.o(i.sys_task_process) refers to sys_time.o(i.get_sys_tick) for get_sys_tick
+    sys_task.o(i.sys_task_process) refers to sys_task.o(.data) for sys_task_head
+    sys_time.o(i.delay_ms) refers to sys_time.o(i.get_sys_tick) for get_sys_tick
+    sys_time.o(i.delay_ms) refers to sys_time.o(i.is_timeout) for is_timeout
+    sys_time.o(i.get_sys_tick) refers to sys_time.o(.data) for sys_tick
+    sys_time.o(i.is_timeout) refers to sys_time.o(i.get_sys_tick) for get_sys_tick
+    sys_time.o(i.sys_tick_count) refers to sys_time.o(.data) for sys_tick
+    rt_memcpy.o(.text) refers to rt_memcpy.o(.emb_text) for __aeabi_memcpy4
+    __main.o(!!!main) refers to __rtentry.o(.ARM.Collect$$rtentry$$00000000) for __rt_entry
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for __rt_entry_li
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for __rt_entry_main
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000C) for __rt_entry_postli_1
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$00000009) for __rt_entry_postsh_1
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$00000002) for __rt_entry_presh_1
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry4.o(.ARM.Collect$$rtentry$$00000004) for __rt_entry_sh
+    aeabi_idiv0_sigfpe.o(.text) refers to rt_div0.o(.text) for __rt_div0
+    __rtentry2.o(.ARM.Collect$$rtentry$$00000008) refers to boardinit2.o(.text) for _platform_post_stackheap_init
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) refers to libinit.o(.ARM.Collect$$libinit$$00000000) for __rt_lib_init
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000B) refers to boardinit3.o(.text) for _platform_post_lib_init
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) refers to main.o(i.main) for main
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) refers to exit.o(.text) for exit
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$00000001) for .ARM.Collect$$rtentry$$00000001
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$00000008) for .ARM.Collect$$rtentry$$00000008
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for .ARM.Collect$$rtentry$$0000000A
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$0000000B) for .ARM.Collect$$rtentry$$0000000B
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for .ARM.Collect$$rtentry$$0000000D
+    __rtentry4.o(.ARM.Collect$$rtentry$$00000004) refers to sys_stackheap_outer.o(.text) for __user_setup_stackheap
+    __rtentry4.o(.ARM.exidx) refers to __rtentry4.o(.ARM.Collect$$rtentry$$00000004) for .ARM.Collect$$rtentry$$00000004
+    rt_div0.o(.text) refers to defsig_fpe_outer.o(.text) for __rt_SIGFPE
+    sys_stackheap_outer.o(.text) refers to libspace.o(.text) for __user_perproc_libspace
+    sys_stackheap_outer.o(.text) refers to keil_startup_hk32f030m.o(.text) for __user_initial_stackheap
+    sys_stackheap_outer.o(__vectab_stack_and_reset_area) refers to tempstk.o(.text) for __temporary_stack_top
+    sys_stackheap_outer.o(__vectab_stack_and_reset_area) refers to __main.o(!!!main) for __main
+    exit.o(.text) refers to rtexit.o(.ARM.Collect$$rtexit$$00000000) for __rt_exit
+    defsig_fpe_outer.o(.text) refers to defsig_fpe_inner.o(.text) for __rt_SIGFPE_inner
+    defsig_fpe_outer.o(.text) refers to defsig_exit.o(.text) for __sig_exit
+    defsig_fpe_formal.o(.text) refers to rt_raise.o(.text) for __rt_raise
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002E) for __rt_lib_init_alloca_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002C) for __rt_lib_init_argv_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001B) for __rt_lib_init_atexit_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000021) for __rt_lib_init_clock_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000032) for __rt_lib_init_cpp_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000030) for __rt_lib_init_exceptions_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000002) for __rt_lib_init_fp_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001F) for __rt_lib_init_fp_trap_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000023) for __rt_lib_init_getenv_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000A) for __rt_lib_init_heap_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000011) for __rt_lib_init_lc_collate_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000013) for __rt_lib_init_lc_ctype_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000015) for __rt_lib_init_lc_monetary_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000017) for __rt_lib_init_lc_numeric_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000019) for __rt_lib_init_lc_time_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000004) for __rt_lib_init_preinit_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000E) for __rt_lib_init_rand_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000033) for __rt_lib_init_return
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001D) for __rt_lib_init_signal_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000025) for __rt_lib_init_stdio_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000C) for __rt_lib_init_user_alloc_1
+    libspace.o(.text) refers to libspace.o(.bss) for __libspace_start
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for __rt_exit_exit
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for __rt_exit_ls
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000002) for __rt_exit_prels_1
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for __rt_exit_exit
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for __rt_exit_ls
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000002) for __rt_exit_prels_1
+    rtexit.o(.ARM.exidx) refers to rtexit.o(.ARM.Collect$$rtexit$$00000000) for .ARM.Collect$$rtexit$$00000000
+    rt_raise.o(.text) refers to __raise.o(.text) for __raise
+    rt_raise.o(.text) refers to sys_exit.o(.text) for _sys_exit
+    defsig_exit.o(.text) refers to sys_exit.o(.text) for _sys_exit
+    defsig_fpe_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    libinit2.o(.ARM.Collect$$libinit$$00000010) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000012) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000014) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000016) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000018) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000026) refers to argv_veneer.o(.text) for __ARM_argv_veneer
+    libinit2.o(.ARM.Collect$$libinit$$00000027) refers to argv_veneer.o(.text) for __ARM_argv_veneer
+    sys_exit.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_exit.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    rtexit2.o(.ARM.Collect$$rtexit$$00000003) refers to libshutdown.o(.ARM.Collect$$libshutdown$$00000000) for __rt_lib_shutdown
+    rtexit2.o(.ARM.Collect$$rtexit$$00000004) refers to sys_exit.o(.text) for _sys_exit
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000001) for .ARM.Collect$$rtexit$$00000001
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for .ARM.Collect$$rtexit$$00000003
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for .ARM.Collect$$rtexit$$00000004
+    __raise.o(.text) refers to defsig.o(CL$$defsig) for __default_signal_handler
+    defsig_general.o(.text) refers to sys_wrch.o(.text) for _ttywrch
+    sys_wrch.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_wrch.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    defsig.o(CL$$defsig) refers to defsig_fpe_inner.o(.text) for __rt_SIGFPE_inner
+    defsig.o(CL$$defsig) refers to defsig_rtmem_inner.o(.text) for __rt_SIGRTMEM_inner
+    _get_argv_nomalloc.o(.text) refers (Special) to hrguard.o(.text) for __heap_region$guard
+    _get_argv_nomalloc.o(.text) refers to defsig_rtmem_outer.o(.text) for __rt_SIGRTMEM
+    _get_argv_nomalloc.o(.text) refers to sys_command.o(.text) for _sys_command_string
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000004) for __rt_lib_shutdown_cpp_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000002) for __rt_lib_shutdown_fini_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000009) for __rt_lib_shutdown_fp_trap_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000011) for __rt_lib_shutdown_heap_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000012) for __rt_lib_shutdown_return
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C) for __rt_lib_shutdown_signal_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000006) for __rt_lib_shutdown_stdio_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000E) for __rt_lib_shutdown_user_alloc_1
+    sys_command.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_command.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    defsig_abrt_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_rtred_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_rtmem_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_rtmem_outer.o(.text) refers to defsig_rtmem_inner.o(.text) for __rt_SIGRTMEM_inner
+    defsig_rtmem_outer.o(.text) refers to defsig_exit.o(.text) for __sig_exit
+    defsig_rtmem_formal.o(.text) refers to rt_raise.o(.text) for __rt_raise
+    defsig_stak_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_pvfn_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_cppl_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_segv_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_other.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing system_process.o(.rev16_text), (4 bytes).
+    Removing system_process.o(.revsh_text), (4 bytes).
+    Removing hk32f030m_it.o(.rev16_text), (4 bytes).
+    Removing hk32f030m_it.o(.revsh_text), (4 bytes).
+    Removing main.o(.rev16_text), (4 bytes).
+    Removing main.o(.revsh_text), (4 bytes).
+    Removing drv_adc.o(.rev16_text), (4 bytes).
+    Removing drv_adc.o(.revsh_text), (4 bytes).
+    Removing drv_adc.o(.data), (4 bytes).
+    Removing drv_gpio.o(.rev16_text), (4 bytes).
+    Removing drv_gpio.o(.revsh_text), (4 bytes).
+    Removing drv_systick.o(.rev16_text), (4 bytes).
+    Removing drv_systick.o(.revsh_text), (4 bytes).
+    Removing drv_systick.o(i.delay_us), (28 bytes).
+    Removing drv_systick.o(.data), (1 bytes).
+    Removing drv_usart.o(.rev16_text), (4 bytes).
+    Removing drv_usart.o(.revsh_text), (4 bytes).
+    Removing drv_pwm.o(.rev16_text), (4 bytes).
+    Removing drv_pwm.o(.revsh_text), (4 bytes).
+    Removing sys_power.o(.rev16_text), (4 bytes).
+    Removing sys_power.o(.revsh_text), (4 bytes).
+    Removing charge_detection.o(.rev16_text), (4 bytes).
+    Removing charge_detection.o(.revsh_text), (4 bytes).
+    Removing modulator.o(.rev16_text), (4 bytes).
+    Removing modulator.o(.revsh_text), (4 bytes).
+    Removing hk32f030m_adc.o(.rev16_text), (4 bytes).
+    Removing hk32f030m_adc.o(.revsh_text), (4 bytes).
+    Removing hk32f030m_adc.o(i.ADC_AWDWakeup_Cmd), (50 bytes).
+    Removing hk32f030m_adc.o(i.ADC_AnalogWatchdogCmd), (28 bytes).
+    Removing hk32f030m_adc.o(i.ADC_AnalogWatchdogSingleChannelCmd), (28 bytes).
+    Removing hk32f030m_adc.o(i.ADC_AnalogWatchdogSingleChannelConfig), (28 bytes).
+    Removing hk32f030m_adc.o(i.ADC_AnalogWatchdogThresholdsConfig), (8 bytes).
+    Removing hk32f030m_adc.o(i.ADC_AutoPowerOffCmd), (28 bytes).
+    Removing hk32f030m_adc.o(i.ADC_ClearFlag), (4 bytes).
+    Removing hk32f030m_adc.o(i.ADC_ClearITPendingBit), (4 bytes).
+    Removing hk32f030m_adc.o(i.ADC_ClockModeConfig), (4 bytes).
+    Removing hk32f030m_adc.o(i.ADC_ContinuousModeCmd), (28 bytes).
+    Removing hk32f030m_adc.o(i.ADC_Diff_Func), (48 bytes).
+    Removing hk32f030m_adc.o(i.ADC_DiscModeCmd), (28 bytes).
+    Removing hk32f030m_adc.o(i.ADC_GetCalibrationFactor), (60 bytes).
+    Removing hk32f030m_adc.o(i.ADC_GetITStatus), (34 bytes).
+    Removing hk32f030m_adc.o(i.ADC_ITConfig), (20 bytes).
+    Removing hk32f030m_adc.o(i.ADC_InterDelay_Func), (48 bytes).
+    Removing hk32f030m_adc.o(i.ADC_JitterCmd), (20 bytes).
+    Removing hk32f030m_adc.o(i.ADC_OverrunModeCmd), (28 bytes).
+    Removing hk32f030m_adc.o(i.ADC_StopOfConversion), (10 bytes).
+    Removing hk32f030m_adc.o(i.ADC_VrefintCmd), (52 bytes).
+    Removing hk32f030m_adc.o(i.ADC_WaitModeCmd), (28 bytes).
+    Removing hk32f030m_awu.o(.rev16_text), (4 bytes).
+    Removing hk32f030m_awu.o(.revsh_text), (4 bytes).
+    Removing hk32f030m_awu.o(i.AWU_CLKConfig), (36 bytes).
+    Removing hk32f030m_awu.o(i.AWU_DeInit), (16 bytes).
+    Removing hk32f030m_awu.o(i.AWU_GetFlagStatus), (16 bytes).
+    Removing hk32f030m_awu.o(i.AWU_TimerCounterAndStart), (76 bytes).
+    Removing hk32f030m_beep.o(.rev16_text), (4 bytes).
+    Removing hk32f030m_beep.o(.revsh_text), (4 bytes).
+    Removing hk32f030m_beep.o(i.BEEP_ClockSelect), (36 bytes).
+    Removing hk32f030m_beep.o(i.BEEP_Cmd), (64 bytes).
+    Removing hk32f030m_beep.o(i.BEEP_DeInit), (40 bytes).
+    Removing hk32f030m_beep.o(i.BEEP_Init), (140 bytes).
+    Removing hk32f030m_beep.o(i.BEEP_ReadBeepStatus), (28 bytes).
+    Removing hk32f030m_beep.o(i.BEEP_SetPrescaler), (32 bytes).
+    Removing hk32f030m_beep.o(i.BEEP_SetTRGOPrescaler), (32 bytes).
+    Removing hk32f030m_beep.o(i.BEEP_TRGOCmd), (64 bytes).
+    Removing hk32f030m_crc.o(.rev16_text), (4 bytes).
+    Removing hk32f030m_crc.o(.revsh_text), (4 bytes).
+    Removing hk32f030m_crc.o(i.CRC_CalcBlockCRC), (36 bytes).
+    Removing hk32f030m_crc.o(i.CRC_CalcCRC), (16 bytes).
+    Removing hk32f030m_crc.o(i.CRC_DeInit), (28 bytes).
+    Removing hk32f030m_crc.o(i.CRC_GetCRC), (12 bytes).
+    Removing hk32f030m_crc.o(i.CRC_GetIDRegister), (12 bytes).
+    Removing hk32f030m_crc.o(i.CRC_ResetDR), (20 bytes).
+    Removing hk32f030m_crc.o(i.CRC_ReverseInputDataSelect), (32 bytes).
+    Removing hk32f030m_crc.o(i.CRC_ReverseOutputDataCmd), (36 bytes).
+    Removing hk32f030m_crc.o(i.CRC_SetIDRegister), (12 bytes).
+    Removing hk32f030m_crc.o(i.CRC_SetInitRegister), (12 bytes).
+    Removing hk32f030m_dbgmcu.o(.rev16_text), (4 bytes).
+    Removing hk32f030m_dbgmcu.o(.revsh_text), (4 bytes).
+    Removing hk32f030m_dbgmcu.o(i.DBGMCU_APB1PeriphConfig), (32 bytes).
+    Removing hk32f030m_dbgmcu.o(i.DBGMCU_Config), (32 bytes).
+    Removing hk32f030m_dbgmcu.o(i.DBGMCU_GetDEVID), (16 bytes).
+    Removing hk32f030m_dbgmcu.o(i.DBGMCU_GetREVID), (12 bytes).
+    Removing hk32f030m_exti.o(.rev16_text), (4 bytes).
+    Removing hk32f030m_exti.o(.revsh_text), (4 bytes).
+    Removing hk32f030m_exti.o(i.EXTI_ClearFlag), (12 bytes).
+    Removing hk32f030m_exti.o(i.EXTI_ClearITPendingBit), (12 bytes).
+    Removing hk32f030m_exti.o(i.EXTI_DeInit), (24 bytes).
+    Removing hk32f030m_exti.o(i.EXTI_GenerateSWInterrupt), (16 bytes).
+    Removing hk32f030m_exti.o(i.EXTI_GetFlagStatus), (28 bytes).
+    Removing hk32f030m_exti.o(i.EXTI_GetITStatus), (40 bytes).
+    Removing hk32f030m_exti.o(i.EXTI_Init), (136 bytes).
+    Removing hk32f030m_exti.o(i.EXTI_StructInit), (16 bytes).
+    Removing hk32f030m_flash.o(.rev16_text), (4 bytes).
+    Removing hk32f030m_flash.o(.revsh_text), (4 bytes).
+    Removing hk32f030m_flash.o(i.EEPROM_EraseByte), (80 bytes).
+    Removing hk32f030m_flash.o(i.EEPROM_ProgramByte), (68 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_ClearFlag), (12 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_EraseAllPages), (72 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_ErasePage), (76 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_GetFlagStatus), (28 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_GetStatus), (44 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_ITConfig), (32 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_Lock), (20 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_OB_DBGCLKConfig), (156 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_OB_EraseByte), (76 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_OB_GetRDP), (28 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_OB_GetUser), (16 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_OB_GetWRP), (12 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_OB_IWDG_RLRConfig), (192 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_OB_LSILPConfig), (156 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_OB_Lock), (20 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_OB_ProgramData), (72 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_OB_RDPConfig), (192 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_OB_Unlock), (40 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_OB_UserConfig), (196 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_OB_WRPConfig), (284 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_OB_WriteUser), (76 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_ProgramByte), (68 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_ProgramHalfWord), (68 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_SetLatency), (28 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_Unlock), (36 bytes).
+    Removing hk32f030m_flash.o(i.FLASH_WaitForLastOperation), (40 bytes).
+    Removing hk32f030m_flash.o(i.Sys_GetDevice64BitUID), (20 bytes).
+    Removing hk32f030m_gpio.o(.rev16_text), (4 bytes).
+    Removing hk32f030m_gpio.o(.revsh_text), (4 bytes).
+    Removing hk32f030m_gpio.o(i.GPIO_DeInit), (120 bytes).
+    Removing hk32f030m_gpio.o(i.GPIO_IOMUX_ChangePin), (72 bytes).
+    Removing hk32f030m_gpio.o(i.GPIO_IOMUX_PinAFConfig), (152 bytes).
+    Removing hk32f030m_gpio.o(i.GPIO_IOMUX_SetTIM2CN1_Source), (12 bytes).
+    Removing hk32f030m_gpio.o(i.GPIO_PinLockConfig), (34 bytes).
+    Removing hk32f030m_gpio.o(i.GPIO_ReadInputData), (8 bytes).
+    Removing hk32f030m_gpio.o(i.GPIO_ReadOutputData), (8 bytes).
+    Removing hk32f030m_gpio.o(i.GPIO_ReadOutputDataBit), (20 bytes).
+    Removing hk32f030m_gpio.o(i.GPIO_StructInit), (24 bytes).
+    Removing hk32f030m_gpio.o(i.GPIO_Toggle), (8 bytes).
+    Removing hk32f030m_gpio.o(i.GPIO_Write), (4 bytes).
+    Removing hk32f030m_gpio.o(i.GPIO_WriteBit), (12 bytes).
+    Removing hk32f030m_i2c.o(.rev16_text), (4 bytes).
+    Removing hk32f030m_i2c.o(.revsh_text), (4 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_10BitAddressHeaderCmd), (28 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_10BitAddressingModeCmd), (28 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_AcknowledgeConfig), (28 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_AutoEndCmd), (28 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_CalculatePEC), (28 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_ClearFlag), (4 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_ClearITPendingBit), (4 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_ClockTimeoutCmd), (28 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_Cmd), (24 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_DeInit), (36 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_DualAddressCmd), (28 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_ExtendedClockTimeoutCmd), (26 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_GeneralCallCmd), (28 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_GenerateSTART), (28 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_GenerateSTOP), (28 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_GetAddressMatched), (14 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_GetFlagStatus), (28 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_GetITStatus), (78 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_GetPEC), (8 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_GetTransferDirection), (30 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_ITConfig), (20 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_IdleClockTimeoutCmd), (28 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_Init), (108 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_MasterRequestConfig), (28 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_NumberOfBytesConfig), (28 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_OwnAddress2Config), (36 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_PECRequestCmd), (28 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_ReadRegister), (22 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_ReceiveData), (8 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_ReloadCmd), (28 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_SMBusAlertCmd), (28 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_SendData), (4 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_SlaveAddressConfig), (20 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_SlaveByteControlCmd), (28 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_SoftwareResetCmd), (20 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_StopModeCmd), (28 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_StretchClockCmd), (28 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_StructInit), (24 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_TimeoutAConfig), (20 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_TimeoutBConfig), (32 bytes).
+    Removing hk32f030m_i2c.o(i.I2C_TransferHandling), (44 bytes).
+    Removing hk32f030m_iwdg.o(.rev16_text), (4 bytes).
+    Removing hk32f030m_iwdg.o(.revsh_text), (4 bytes).
+    Removing hk32f030m_iwdg.o(i.IWDG_Enable), (16 bytes).
+    Removing hk32f030m_iwdg.o(i.IWDG_GetFlagStatus), (28 bytes).
+    Removing hk32f030m_iwdg.o(i.IWDG_ReloadCounter), (16 bytes).
+    Removing hk32f030m_iwdg.o(i.IWDG_SetPrescaler), (12 bytes).
+    Removing hk32f030m_iwdg.o(i.IWDG_SetReload), (12 bytes).
+    Removing hk32f030m_iwdg.o(i.IWDG_SetWindowValue), (12 bytes).
+    Removing hk32f030m_iwdg.o(i.IWDG_WriteAccessCmd), (12 bytes).
+    Removing hk32f030m_misc.o(.rev16_text), (4 bytes).
+    Removing hk32f030m_misc.o(.revsh_text), (4 bytes).
+    Removing hk32f030m_misc.o(i.NVIC_SystemLPConfig), (32 bytes).
+    Removing hk32f030m_pwr.o(.rev16_text), (4 bytes).
+    Removing hk32f030m_pwr.o(.revsh_text), (4 bytes).
+    Removing hk32f030m_pwr.o(i.PWR_DeInit), (22 bytes).
+    Removing hk32f030m_pwr.o(i.PWR_EnterDeepSleepMode), (16 bytes).
+    Removing hk32f030m_pwr.o(i.PWR_EnterSleepMode), (32 bytes).
+    Removing hk32f030m_pwr.o(i.PWR_EnterStopMode), (112 bytes).
+    Removing hk32f030m_pwr.o(i.PWR_SetLDO_RefVolToADC), (36 bytes).
+    Removing hk32f030m_pwr.o(i.Sysclk_SwitchToLSI), (140 bytes).
+    Removing hk32f030m_rcc.o(.rev16_text), (4 bytes).
+    Removing hk32f030m_rcc.o(.revsh_text), (4 bytes).
+    Removing hk32f030m_rcc.o(i.RCC_ADCCLKConfig), (76 bytes).
+    Removing hk32f030m_rcc.o(i.RCC_AHBPeriphResetCmd), (32 bytes).
+    Removing hk32f030m_rcc.o(i.RCC_APB1PeriphResetCmd), (32 bytes).
+    Removing hk32f030m_rcc.o(i.RCC_AdjustHSICalibrationValue), (32 bytes).
+    Removing hk32f030m_rcc.o(i.RCC_ClearFlag), (20 bytes).
+    Removing hk32f030m_rcc.o(i.RCC_ClearITPendingBit), (12 bytes).
+    Removing hk32f030m_rcc.o(i.RCC_ClockSecuritySystemCmd), (40 bytes).
+    Removing hk32f030m_rcc.o(i.RCC_DeInit), (52 bytes).
+    Removing hk32f030m_rcc.o(i.RCC_EXTCmd), (108 bytes).
+    Removing hk32f030m_rcc.o(i.RCC_GetFlagStatus), (56 bytes).
+    Removing hk32f030m_rcc.o(i.RCC_GetITStatus), (28 bytes).
+    Removing hk32f030m_rcc.o(i.RCC_GetSYSCLKSource), (16 bytes).
+    Removing hk32f030m_rcc.o(i.RCC_HCLKConfig), (32 bytes).
+    Removing hk32f030m_rcc.o(i.RCC_HSICmd), (36 bytes).
+    Removing hk32f030m_rcc.o(i.RCC_I2CCLKConfig), (28 bytes).
+    Removing hk32f030m_rcc.o(i.RCC_ITConfig), (32 bytes).
+    Removing hk32f030m_rcc.o(i.RCC_LSICmd), (36 bytes).
+    Removing hk32f030m_rcc.o(i.RCC_MCOConfig), (36 bytes).
+    Removing hk32f030m_rcc.o(i.RCC_PCLKConfig), (36 bytes).
+    Removing hk32f030m_rcc.o(i.RCC_SYSCLKConfig), (28 bytes).
+    Removing hk32f030m_rcc.o(i.RCC_USARTCLKConfig), (28 bytes).
+    Removing hk32f030m_rcc.o(i.RCC_WaitForStartUp), (64 bytes).
+    Removing hk32f030m_spi.o(.rev16_text), (4 bytes).
+    Removing hk32f030m_spi.o(.revsh_text), (4 bytes).
+    Removing hk32f030m_spi.o(i.I2S_Cmd), (32 bytes).
+    Removing hk32f030m_spi.o(i.I2S_Init), (232 bytes).
+    Removing hk32f030m_spi.o(i.I2S_StructInit), (20 bytes).
+    Removing hk32f030m_spi.o(i.SPI_BiDirectionalLineConfig), (32 bytes).
+    Removing hk32f030m_spi.o(i.SPI_CRCLengthConfig), (20 bytes).
+    Removing hk32f030m_spi.o(i.SPI_CalculateCRC), (32 bytes).
+    Removing hk32f030m_spi.o(i.SPI_Cmd), (28 bytes).
+    Removing hk32f030m_spi.o(i.SPI_DataSizeConfig), (28 bytes).
+    Removing hk32f030m_spi.o(i.SPI_GetCRC), (20 bytes).
+    Removing hk32f030m_spi.o(i.SPI_GetCRCPolynomial), (8 bytes).
+    Removing hk32f030m_spi.o(i.SPI_GetReceptionFIFOStatus), (12 bytes).
+    Removing hk32f030m_spi.o(i.SPI_GetTransmissionFIFOStatus), (12 bytes).
+    Removing hk32f030m_spi.o(i.SPI_I2S_ClearFlag), (8 bytes).
+    Removing hk32f030m_spi.o(i.SPI_I2S_DeInit), (32 bytes).
+    Removing hk32f030m_spi.o(i.SPI_I2S_GetFlagStatus), (20 bytes).
+    Removing hk32f030m_spi.o(i.SPI_I2S_GetITStatus), (56 bytes).
+    Removing hk32f030m_spi.o(i.SPI_I2S_ITConfig), (38 bytes).
+    Removing hk32f030m_spi.o(i.SPI_I2S_ReceiveData16), (8 bytes).
+    Removing hk32f030m_spi.o(i.SPI_I2S_SendData16), (4 bytes).
+    Removing hk32f030m_spi.o(i.SPI_Init), (96 bytes).
+    Removing hk32f030m_spi.o(i.SPI_NSSInternalSoftwareConfig), (32 bytes).
+    Removing hk32f030m_spi.o(i.SPI_NSSPulseModeCmd), (28 bytes).
+    Removing hk32f030m_spi.o(i.SPI_ReceiveData8), (12 bytes).
+    Removing hk32f030m_spi.o(i.SPI_RxFIFOThresholdConfig), (20 bytes).
+    Removing hk32f030m_spi.o(i.SPI_SSOutputCmd), (28 bytes).
+    Removing hk32f030m_spi.o(i.SPI_SendData8), (10 bytes).
+    Removing hk32f030m_spi.o(i.SPI_StructInit), (30 bytes).
+    Removing hk32f030m_spi.o(i.SPI_TIModeCmd), (28 bytes).
+    Removing hk32f030m_spi.o(i.SPI_TransmitCRC), (12 bytes).
+    Removing hk32f030m_syscfg.o(.rev16_text), (4 bytes).
+    Removing hk32f030m_syscfg.o(.revsh_text), (4 bytes).
+    Removing hk32f030m_syscfg.o(i.SYSCFG_DeInit), (20 bytes).
+    Removing hk32f030m_syscfg.o(i.SYSCFG_EXTILineConfig), (64 bytes).
+    Removing hk32f030m_syscfg.o(i.SYSCFG_Lockup_Tim1BreakConfig), (36 bytes).
+    Removing hk32f030m_syscfg.o(i.SYSCFG_MemoryRemapConfig), (40 bytes).
+    Removing hk32f030m_tim.o(.rev16_text), (4 bytes).
+    Removing hk32f030m_tim.o(.revsh_text), (4 bytes).
+    Removing hk32f030m_tim.o(i.TI1_Config), (60 bytes).
+    Removing hk32f030m_tim.o(i.TI2_Config), (80 bytes).
+    Removing hk32f030m_tim.o(i.TI3_Config), (76 bytes).
+    Removing hk32f030m_tim.o(i.TI4_Config), (84 bytes).
+    Removing hk32f030m_tim.o(i.TIM_ARRPreloadConfig), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_BDTRConfig), (30 bytes).
+    Removing hk32f030m_tim.o(i.TIM_BDTRStructInit), (18 bytes).
+    Removing hk32f030m_tim.o(i.TIM_CCPreloadControl), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_CCxCmd), (34 bytes).
+    Removing hk32f030m_tim.o(i.TIM_CCxNCmd), (34 bytes).
+    Removing hk32f030m_tim.o(i.TIM_ClearFlag), (8 bytes).
+    Removing hk32f030m_tim.o(i.TIM_ClearITPendingBit), (8 bytes).
+    Removing hk32f030m_tim.o(i.TIM_ClearOC1Ref), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_ClearOC2Ref), (22 bytes).
+    Removing hk32f030m_tim.o(i.TIM_ClearOC3Ref), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_ClearOC4Ref), (22 bytes).
+    Removing hk32f030m_tim.o(i.TIM_CounterModeConfig), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_DeInit), (88 bytes).
+    Removing hk32f030m_tim.o(i.TIM_ETRClockMode1Config), (52 bytes).
+    Removing hk32f030m_tim.o(i.TIM_ETRClockMode2Config), (34 bytes).
+    Removing hk32f030m_tim.o(i.TIM_ETRConfig), (26 bytes).
+    Removing hk32f030m_tim.o(i.TIM_EncoderInterfaceConfig), (72 bytes).
+    Removing hk32f030m_tim.o(i.TIM_ForcedOC1Config), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_ForcedOC2Config), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_ForcedOC3Config), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_ForcedOC4Config), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_GenerateEvent), (4 bytes).
+    Removing hk32f030m_tim.o(i.TIM_GetCapture1), (6 bytes).
+    Removing hk32f030m_tim.o(i.TIM_GetCapture2), (6 bytes).
+    Removing hk32f030m_tim.o(i.TIM_GetCapture3), (6 bytes).
+    Removing hk32f030m_tim.o(i.TIM_GetCapture4), (6 bytes).
+    Removing hk32f030m_tim.o(i.TIM_GetCounter), (6 bytes).
+    Removing hk32f030m_tim.o(i.TIM_GetFlagStatus), (20 bytes).
+    Removing hk32f030m_tim.o(i.TIM_GetITStatus), (38 bytes).
+    Removing hk32f030m_tim.o(i.TIM_GetPrescaler), (8 bytes).
+    Removing hk32f030m_tim.o(i.TIM_ICInit), (112 bytes).
+    Removing hk32f030m_tim.o(i.TIM_ICStructInit), (18 bytes).
+    Removing hk32f030m_tim.o(i.TIM_ITConfig), (26 bytes).
+    Removing hk32f030m_tim.o(i.TIM_ITRxExternalClockConfig), (24 bytes).
+    Removing hk32f030m_tim.o(i.TIM_InternalClockConfig), (16 bytes).
+    Removing hk32f030m_tim.o(i.TIM_OC1FastConfig), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_OC1NPolarityConfig), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_OC1PolarityConfig), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_OC2FastConfig), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_OC2NPolarityConfig), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_OC2PolarityConfig), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_OC3FastConfig), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_OC3NPolarityConfig), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_OC3PolarityConfig), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_OC4FastConfig), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_OC4PolarityConfig), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_OCStructInit), (20 bytes).
+    Removing hk32f030m_tim.o(i.TIM_PWMIConfig), (124 bytes).
+    Removing hk32f030m_tim.o(i.TIM_PrescalerConfig), (6 bytes).
+    Removing hk32f030m_tim.o(i.TIM_SelectCOM), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_SelectHallSensor), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_SelectInputTrigger), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_SelectMasterSlaveMode), (20 bytes).
+    Removing hk32f030m_tim.o(i.TIM_SelectOCREFClear), (20 bytes).
+    Removing hk32f030m_tim.o(i.TIM_SelectOCxM), (86 bytes).
+    Removing hk32f030m_tim.o(i.TIM_SelectOnePulseMode), (20 bytes).
+    Removing hk32f030m_tim.o(i.TIM_SelectOutputTrigger), (20 bytes).
+    Removing hk32f030m_tim.o(i.TIM_SelectSlaveMode), (20 bytes).
+    Removing hk32f030m_tim.o(i.TIM_SetAutoreload), (4 bytes).
+    Removing hk32f030m_tim.o(i.TIM_SetClockDivision), (20 bytes).
+    Removing hk32f030m_tim.o(i.TIM_SetCompare3), (4 bytes).
+    Removing hk32f030m_tim.o(i.TIM_SetCounter), (4 bytes).
+    Removing hk32f030m_tim.o(i.TIM_SetIC1Prescaler), (20 bytes).
+    Removing hk32f030m_tim.o(i.TIM_SetIC2Prescaler), (24 bytes).
+    Removing hk32f030m_tim.o(i.TIM_SetIC3Prescaler), (20 bytes).
+    Removing hk32f030m_tim.o(i.TIM_SetIC4Prescaler), (24 bytes).
+    Removing hk32f030m_tim.o(i.TIM_TIxExternalClockConfig), (58 bytes).
+    Removing hk32f030m_tim.o(i.TIM_TimeBaseStructInit), (18 bytes).
+    Removing hk32f030m_tim.o(i.TIM_UpdateDisableConfig), (28 bytes).
+    Removing hk32f030m_tim.o(i.TIM_UpdateRequestConfig), (28 bytes).
+    Removing hk32f030m_usart.o(.rev16_text), (4 bytes).
+    Removing hk32f030m_usart.o(.revsh_text), (4 bytes).
+    Removing hk32f030m_usart.o(i.USART_AddressDetectionConfig), (16 bytes).
+    Removing hk32f030m_usart.o(i.USART_AutoBaudRateCmd), (28 bytes).
+    Removing hk32f030m_usart.o(i.USART_AutoBaudRateConfig), (18 bytes).
+    Removing hk32f030m_usart.o(i.USART_ClearITPendingBit), (18 bytes).
+    Removing hk32f030m_usart.o(i.USART_ClockInit), (36 bytes).
+    Removing hk32f030m_usart.o(i.USART_ClockStructInit), (12 bytes).
+    Removing hk32f030m_usart.o(i.USART_DECmd), (28 bytes).
+    Removing hk32f030m_usart.o(i.USART_DEPolarityConfig), (18 bytes).
+    Removing hk32f030m_usart.o(i.USART_DataInvCmd), (28 bytes).
+    Removing hk32f030m_usart.o(i.USART_DeInit), (36 bytes).
+    Removing hk32f030m_usart.o(i.USART_DirectionModeCmd), (20 bytes).
+    Removing hk32f030m_usart.o(i.USART_HalfDuplexCmd), (24 bytes).
+    Removing hk32f030m_usart.o(i.USART_InvPinCmd), (20 bytes).
+    Removing hk32f030m_usart.o(i.USART_IrDACmd), (24 bytes).
+    Removing hk32f030m_usart.o(i.USART_IrDAConfig), (16 bytes).
+    Removing hk32f030m_usart.o(i.USART_LINBreakDetectLengthConfig), (16 bytes).
+    Removing hk32f030m_usart.o(i.USART_LINCmd), (28 bytes).
+    Removing hk32f030m_usart.o(i.USART_MSBFirstCmd), (28 bytes).
+    Removing hk32f030m_usart.o(i.USART_MuteModeCmd), (28 bytes).
+    Removing hk32f030m_usart.o(i.USART_MuteModeWakeUpConfig), (18 bytes).
+    Removing hk32f030m_usart.o(i.USART_OneBitMethodCmd), (28 bytes).
+    Removing hk32f030m_usart.o(i.USART_OverSampling8Cmd), (28 bytes).
+    Removing hk32f030m_usart.o(i.USART_OverrunDetectionConfig), (18 bytes).
+    Removing hk32f030m_usart.o(i.USART_ReceiverTimeOutCmd), (28 bytes).
+    Removing hk32f030m_usart.o(i.USART_RequestCmd), (20 bytes).
+    Removing hk32f030m_usart.o(i.USART_STOPModeCmd), (24 bytes).
+    Removing hk32f030m_usart.o(i.USART_SWAPPinCmd), (28 bytes).
+    Removing hk32f030m_usart.o(i.USART_SetAddress), (18 bytes).
+    Removing hk32f030m_usart.o(i.USART_SetAutoRetryCount), (20 bytes).
+    Removing hk32f030m_usart.o(i.USART_SetBlockLength), (18 bytes).
+    Removing hk32f030m_usart.o(i.USART_SetDEAssertionTime), (20 bytes).
+    Removing hk32f030m_usart.o(i.USART_SetDEDeassertionTime), (20 bytes).
+    Removing hk32f030m_usart.o(i.USART_SetGuardTime), (16 bytes).
+    Removing hk32f030m_usart.o(i.USART_SetPrescaler), (18 bytes).
+    Removing hk32f030m_usart.o(i.USART_SetReceiverTimeOut), (16 bytes).
+    Removing hk32f030m_usart.o(i.USART_SmartCardCmd), (24 bytes).
+    Removing hk32f030m_usart.o(i.USART_SmartCardNACKCmd), (24 bytes).
+    Removing hk32f030m_usart.o(i.USART_StopModeWakeUpSourceConfig), (18 bytes).
+    Removing hk32f030m_usart.o(i.USART_StructInit), (24 bytes).
+    Removing hk32f030m_wwdg.o(.rev16_text), (4 bytes).
+    Removing hk32f030m_wwdg.o(.revsh_text), (4 bytes).
+    Removing hk32f030m_wwdg.o(i.WWDG_ClearFlag), (12 bytes).
+    Removing hk32f030m_wwdg.o(i.WWDG_DeInit), (22 bytes).
+    Removing hk32f030m_wwdg.o(i.WWDG_Enable), (16 bytes).
+    Removing hk32f030m_wwdg.o(i.WWDG_EnableIT), (20 bytes).
+    Removing hk32f030m_wwdg.o(i.WWDG_GetFlagStatus), (24 bytes).
+    Removing hk32f030m_wwdg.o(i.WWDG_SetCounter), (16 bytes).
+    Removing hk32f030m_wwdg.o(i.WWDG_SetPrescaler), (32 bytes).
+    Removing hk32f030m_wwdg.o(i.WWDG_SetWindowValue), (40 bytes).
+    Removing system_hk32f030m.o(.rev16_text), (4 bytes).
+    Removing system_hk32f030m.o(.revsh_text), (4 bytes).
+    Removing system_hk32f030m.o(i.SystemCoreClockUpdate), (116 bytes).
+    Removing system_hk32f030m.o(.data), (4 bytes).
+    Removing sys_blink.o(.rev16_text), (4 bytes).
+    Removing sys_blink.o(.revsh_text), (4 bytes).
+    Removing sys_blink.o(i.blink_dev_busy), (6 bytes).
+    Removing sys_blink.o(i.blink_dev_create), (60 bytes).
+    Removing sys_blink.o(i.blink_dev_ctrl), (44 bytes).
+    Removing sys_blink.o(i.blink_dev_process), (124 bytes).
+    Removing sys_blink.o(.data), (4 bytes).
+    Removing sys_keyinput.o(.rev16_text), (4 bytes).
+    Removing sys_keyinput.o(.revsh_text), (4 bytes).
+    Removing sys_keyinput.o(i.key_dev_create), (40 bytes).
+    Removing sys_keyinput.o(i.keyinput_process), (300 bytes).
+    Removing sys_keyinput.o(.data), (4 bytes).
+    Removing sys_ringbuffer.o(.rev16_text), (4 bytes).
+    Removing sys_ringbuffer.o(.revsh_text), (4 bytes).
+    Removing sys_ringbuffer.o(i.ring_buf_clr), (8 bytes).
+    Removing sys_ringbuffer.o(i.ring_buf_len), (10 bytes).
+    Removing sys_task.o(.rev16_text), (4 bytes).
+    Removing sys_task.o(.revsh_text), (4 bytes).
+    Removing sys_task.o(i.sys_task_stop), (6 bytes).
+    Removing sys_time.o(.rev16_text), (4 bytes).
+    Removing sys_time.o(.revsh_text), (4 bytes).
+    Removing sys_time.o(i.delay_ms), (26 bytes).
+
+415 unused section(s) (total 12431 bytes) removed from the image.
+
+==============================================================================
+
+Image Symbol Table
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
+    ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_copy.o ABSOLUTE
+    ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_div0.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_idiv0.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_idiv0_sigfpe.o ABSOLUTE
+    ../clib/angel/scatterp.s                 0x00000000   Number         0  __scatter.o ABSOLUTE
+    ../clib/angel/startup.s                  0x00000000   Number         0  __main.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  tempstk.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
+    ../clib/division.s                       0x00000000   Number         0  aeabi_sdiv_div0.o ABSOLUTE
+    ../clib/division.s                       0x00000000   Number         0  aeabi_sdiv.o ABSOLUTE
+    ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
+    ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
+    ../clib/memcpset.c                       0x00000000   Number         0  rt_memcpy.o ABSOLUTE
+    ../clib/memcpset.c                       0x00000000   Number         0  rt_memcpy.o ABSOLUTE
+    ../clib/memcpset.c                       0x00000000   Number         0  rt_memclr.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
+    ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
+    ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
+    ../fplib/cfplib/fpinit.c                 0x00000000   Number         0  fpinit.o ABSOLUTE
+    ..\Libraries\CMSIS\HK32F030M\Source\KEIL_Startup_hk32f030m.s 0x00000000   Number         0  keil_startup_hk32f030m.o ABSOLUTE
+    ..\Libraries\CMSIS\HK32F030M\Source\system_hk32f030m.c 0x00000000   Number         0  system_hk32f030m.o ABSOLUTE
+    ..\Libraries\HK32F030M_Lib\src\hk32f030m_adc.c 0x00000000   Number         0  hk32f030m_adc.o ABSOLUTE
+    ..\Libraries\HK32F030M_Lib\src\hk32f030m_awu.c 0x00000000   Number         0  hk32f030m_awu.o ABSOLUTE
+    ..\Libraries\HK32F030M_Lib\src\hk32f030m_beep.c 0x00000000   Number         0  hk32f030m_beep.o ABSOLUTE
+    ..\Libraries\HK32F030M_Lib\src\hk32f030m_crc.c 0x00000000   Number         0  hk32f030m_crc.o ABSOLUTE
+    ..\Libraries\HK32F030M_Lib\src\hk32f030m_dbgmcu.c 0x00000000   Number         0  hk32f030m_dbgmcu.o ABSOLUTE
+    ..\Libraries\HK32F030M_Lib\src\hk32f030m_exti.c 0x00000000   Number         0  hk32f030m_exti.o ABSOLUTE
+    ..\Libraries\HK32F030M_Lib\src\hk32f030m_flash.c 0x00000000   Number         0  hk32f030m_flash.o ABSOLUTE
+    ..\Libraries\HK32F030M_Lib\src\hk32f030m_gpio.c 0x00000000   Number         0  hk32f030m_gpio.o ABSOLUTE
+    ..\Libraries\HK32F030M_Lib\src\hk32f030m_i2c.c 0x00000000   Number         0  hk32f030m_i2c.o ABSOLUTE
+    ..\Libraries\HK32F030M_Lib\src\hk32f030m_iwdg.c 0x00000000   Number         0  hk32f030m_iwdg.o ABSOLUTE
+    ..\Libraries\HK32F030M_Lib\src\hk32f030m_misc.c 0x00000000   Number         0  hk32f030m_misc.o ABSOLUTE
+    ..\Libraries\HK32F030M_Lib\src\hk32f030m_pwr.c 0x00000000   Number         0  hk32f030m_pwr.o ABSOLUTE
+    ..\Libraries\HK32F030M_Lib\src\hk32f030m_rcc.c 0x00000000   Number         0  hk32f030m_rcc.o ABSOLUTE
+    ..\Libraries\HK32F030M_Lib\src\hk32f030m_spi.c 0x00000000   Number         0  hk32f030m_spi.o ABSOLUTE
+    ..\Libraries\HK32F030M_Lib\src\hk32f030m_syscfg.c 0x00000000   Number         0  hk32f030m_syscfg.o ABSOLUTE
+    ..\Libraries\HK32F030M_Lib\src\hk32f030m_tim.c 0x00000000   Number         0  hk32f030m_tim.o ABSOLUTE
+    ..\Libraries\HK32F030M_Lib\src\hk32f030m_usart.c 0x00000000   Number         0  hk32f030m_usart.o ABSOLUTE
+    ..\Libraries\HK32F030M_Lib\src\hk32f030m_wwdg.c 0x00000000   Number         0  hk32f030m_wwdg.o ABSOLUTE
+    ..\Util\sys_blink.c                      0x00000000   Number         0  sys_blink.o ABSOLUTE
+    ..\Util\sys_keyinput.c                   0x00000000   Number         0  sys_keyinput.o ABSOLUTE
+    ..\Util\sys_ringbuffer.c                 0x00000000   Number         0  sys_ringbuffer.o ABSOLUTE
+    ..\Util\sys_task.c                       0x00000000   Number         0  sys_task.o ABSOLUTE
+    ..\Util\sys_time.c                       0x00000000   Number         0  sys_time.o ABSOLUTE
+    ..\\Libraries\\CMSIS\\HK32F030M\\Source\\system_hk32f030m.c 0x00000000   Number         0  system_hk32f030m.o ABSOLUTE
+    ..\\Libraries\\HK32F030M_Lib\\src\\hk32f030m_adc.c 0x00000000   Number         0  hk32f030m_adc.o ABSOLUTE
+    ..\\Libraries\\HK32F030M_Lib\\src\\hk32f030m_awu.c 0x00000000   Number         0  hk32f030m_awu.o ABSOLUTE
+    ..\\Libraries\\HK32F030M_Lib\\src\\hk32f030m_beep.c 0x00000000   Number         0  hk32f030m_beep.o ABSOLUTE
+    ..\\Libraries\\HK32F030M_Lib\\src\\hk32f030m_crc.c 0x00000000   Number         0  hk32f030m_crc.o ABSOLUTE
+    ..\\Libraries\\HK32F030M_Lib\\src\\hk32f030m_dbgmcu.c 0x00000000   Number         0  hk32f030m_dbgmcu.o ABSOLUTE
+    ..\\Libraries\\HK32F030M_Lib\\src\\hk32f030m_exti.c 0x00000000   Number         0  hk32f030m_exti.o ABSOLUTE
+    ..\\Libraries\\HK32F030M_Lib\\src\\hk32f030m_flash.c 0x00000000   Number         0  hk32f030m_flash.o ABSOLUTE
+    ..\\Libraries\\HK32F030M_Lib\\src\\hk32f030m_gpio.c 0x00000000   Number         0  hk32f030m_gpio.o ABSOLUTE
+    ..\\Libraries\\HK32F030M_Lib\\src\\hk32f030m_i2c.c 0x00000000   Number         0  hk32f030m_i2c.o ABSOLUTE
+    ..\\Libraries\\HK32F030M_Lib\\src\\hk32f030m_iwdg.c 0x00000000   Number         0  hk32f030m_iwdg.o ABSOLUTE
+    ..\\Libraries\\HK32F030M_Lib\\src\\hk32f030m_misc.c 0x00000000   Number         0  hk32f030m_misc.o ABSOLUTE
+    ..\\Libraries\\HK32F030M_Lib\\src\\hk32f030m_pwr.c 0x00000000   Number         0  hk32f030m_pwr.o ABSOLUTE
+    ..\\Libraries\\HK32F030M_Lib\\src\\hk32f030m_rcc.c 0x00000000   Number         0  hk32f030m_rcc.o ABSOLUTE
+    ..\\Libraries\\HK32F030M_Lib\\src\\hk32f030m_spi.c 0x00000000   Number         0  hk32f030m_spi.o ABSOLUTE
+    ..\\Libraries\\HK32F030M_Lib\\src\\hk32f030m_syscfg.c 0x00000000   Number         0  hk32f030m_syscfg.o ABSOLUTE
+    ..\\Libraries\\HK32F030M_Lib\\src\\hk32f030m_tim.c 0x00000000   Number         0  hk32f030m_tim.o ABSOLUTE
+    ..\\Libraries\\HK32F030M_Lib\\src\\hk32f030m_usart.c 0x00000000   Number         0  hk32f030m_usart.o ABSOLUTE
+    ..\\Libraries\\HK32F030M_Lib\\src\\hk32f030m_wwdg.c 0x00000000   Number         0  hk32f030m_wwdg.o ABSOLUTE
+    ..\\Util\\sys_blink.c                    0x00000000   Number         0  sys_blink.o ABSOLUTE
+    ..\\Util\\sys_keyinput.c                 0x00000000   Number         0  sys_keyinput.o ABSOLUTE
+    ..\\Util\\sys_ringbuffer.c               0x00000000   Number         0  sys_ringbuffer.o ABSOLUTE
+    ..\\Util\\sys_task.c                     0x00000000   Number         0  sys_task.o ABSOLUTE
+    ..\\Util\\sys_time.c                     0x00000000   Number         0  sys_time.o ABSOLUTE
+    ..\\application\\system_process.c        0x00000000   Number         0  system_process.o ABSOLUTE
+    ..\\board\\charge_detection.c            0x00000000   Number         0  charge_detection.o ABSOLUTE
+    ..\\board\\modulator.c                   0x00000000   Number         0  modulator.o ABSOLUTE
+    ..\\board\\sys_power.c                   0x00000000   Number         0  sys_power.o ABSOLUTE
+    ..\\drives\\drv_adc.c                    0x00000000   Number         0  drv_adc.o ABSOLUTE
+    ..\\drives\\drv_gpio.c                   0x00000000   Number         0  drv_gpio.o ABSOLUTE
+    ..\\drives\\drv_pwm.c                    0x00000000   Number         0  drv_pwm.o ABSOLUTE
+    ..\\drives\\drv_systick.c                0x00000000   Number         0  drv_systick.o ABSOLUTE
+    ..\\drives\\drv_usart.c                  0x00000000   Number         0  drv_usart.o ABSOLUTE
+    ..\application\system_process.c          0x00000000   Number         0  system_process.o ABSOLUTE
+    ..\board\charge_detection.c              0x00000000   Number         0  charge_detection.o ABSOLUTE
+    ..\board\modulator.c                     0x00000000   Number         0  modulator.o ABSOLUTE
+    ..\board\sys_power.c                     0x00000000   Number         0  sys_power.o ABSOLUTE
+    ..\drives\drv_adc.c                      0x00000000   Number         0  drv_adc.o ABSOLUTE
+    ..\drives\drv_gpio.c                     0x00000000   Number         0  drv_gpio.o ABSOLUTE
+    ..\drives\drv_pwm.c                      0x00000000   Number         0  drv_pwm.o ABSOLUTE
+    ..\drives\drv_systick.c                  0x00000000   Number         0  drv_systick.o ABSOLUTE
+    ..\drives\drv_usart.c                    0x00000000   Number         0  drv_usart.o ABSOLUTE
+    dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
+    hk32f030m_it.c                           0x00000000   Number         0  hk32f030m_it.o ABSOLUTE
+    hk32f030m_it.c                           0x00000000   Number         0  hk32f030m_it.o ABSOLUTE
+    main.c                                   0x00000000   Number         0  main.o ABSOLUTE
+    main.c                                   0x00000000   Number         0  main.o ABSOLUTE
+    RESET                                    0x08000000   Section      192  keil_startup_hk32f030m.o(RESET)
+    !!!main                                  0x080000c0   Section        8  __main.o(!!!main)
+    !!!scatter                               0x080000c8   Section       60  __scatter.o(!!!scatter)
+    !!handler_copy                           0x08000104   Section       26  __scatter_copy.o(!!handler_copy)
+    !!handler_zi                             0x08000120   Section       28  __scatter_zi.o(!!handler_zi)
+    .ARM.Collect$$libinit$$00000000          0x0800013c   Section        2  libinit.o(.ARM.Collect$$libinit$$00000000)
+    .ARM.Collect$$libinit$$00000002          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000002)
+    .ARM.Collect$$libinit$$00000004          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000004)
+    .ARM.Collect$$libinit$$0000000A          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000000A)
+    .ARM.Collect$$libinit$$0000000C          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000000C)
+    .ARM.Collect$$libinit$$0000000E          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000000E)
+    .ARM.Collect$$libinit$$00000011          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000011)
+    .ARM.Collect$$libinit$$00000013          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000013)
+    .ARM.Collect$$libinit$$00000015          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000015)
+    .ARM.Collect$$libinit$$00000017          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000017)
+    .ARM.Collect$$libinit$$00000019          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000019)
+    .ARM.Collect$$libinit$$0000001B          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001B)
+    .ARM.Collect$$libinit$$0000001D          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001D)
+    .ARM.Collect$$libinit$$0000001F          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001F)
+    .ARM.Collect$$libinit$$00000021          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000021)
+    .ARM.Collect$$libinit$$00000023          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000023)
+    .ARM.Collect$$libinit$$00000025          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000025)
+    .ARM.Collect$$libinit$$0000002C          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000002C)
+    .ARM.Collect$$libinit$$0000002E          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000002E)
+    .ARM.Collect$$libinit$$00000030          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000030)
+    .ARM.Collect$$libinit$$00000032          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000032)
+    .ARM.Collect$$libinit$$00000033          0x0800013e   Section        2  libinit2.o(.ARM.Collect$$libinit$$00000033)
+    .ARM.Collect$$libshutdown$$00000000      0x08000140   Section        2  libshutdown.o(.ARM.Collect$$libshutdown$$00000000)
+    .ARM.Collect$$libshutdown$$00000002      0x08000142   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000002)
+    .ARM.Collect$$libshutdown$$00000004      0x08000142   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000004)
+    .ARM.Collect$$libshutdown$$00000006      0x08000142   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000006)
+    .ARM.Collect$$libshutdown$$00000009      0x08000142   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000009)
+    .ARM.Collect$$libshutdown$$0000000C      0x08000142   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C)
+    .ARM.Collect$$libshutdown$$0000000E      0x08000142   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000E)
+    .ARM.Collect$$libshutdown$$00000011      0x08000142   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000011)
+    .ARM.Collect$$libshutdown$$00000012      0x08000142   Section        2  libshutdown2.o(.ARM.Collect$$libshutdown$$00000012)
+    .ARM.Collect$$rtentry$$00000000          0x08000144   Section        0  __rtentry.o(.ARM.Collect$$rtentry$$00000000)
+    .ARM.Collect$$rtentry$$00000002          0x08000144   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$00000002)
+    .ARM.Collect$$rtentry$$00000004          0x08000144   Section        6  __rtentry4.o(.ARM.Collect$$rtentry$$00000004)
+    .ARM.Collect$$rtentry$$00000009          0x0800014a   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$00000009)
+    .ARM.Collect$$rtentry$$0000000A          0x0800014a   Section        4  __rtentry2.o(.ARM.Collect$$rtentry$$0000000A)
+    .ARM.Collect$$rtentry$$0000000C          0x0800014e   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000C)
+    .ARM.Collect$$rtentry$$0000000D          0x0800014e   Section        8  __rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
+    .ARM.Collect$$rtexit$$00000000           0x08000156   Section        2  rtexit.o(.ARM.Collect$$rtexit$$00000000)
+    .ARM.Collect$$rtexit$$00000002           0x08000158   Section        0  rtexit2.o(.ARM.Collect$$rtexit$$00000002)
+    .ARM.Collect$$rtexit$$00000003           0x08000158   Section        4  rtexit2.o(.ARM.Collect$$rtexit$$00000003)
+    .ARM.Collect$$rtexit$$00000004           0x0800015c   Section        6  rtexit2.o(.ARM.Collect$$rtexit$$00000004)
+    .emb_text                                0x08000164   Section       56  rt_memcpy.o(.emb_text)
+    .text                                    0x0800019c   Section       56  keil_startup_hk32f030m.o(.text)
+    .text                                    0x080001d4   Section        0  rt_memcpy.o(.text)
+    .text                                    0x08000256   Section        0  rt_memclr.o(.text)
+    .text                                    0x08000296   Section      346  aeabi_sdiv.o(.text)
+    .text                                    0x080003f0   Section        0  heapauxi.o(.text)
+    .text                                    0x080003f6   Section       62  sys_stackheap_outer.o(.text)
+    .text                                    0x08000434   Section        0  exit.o(.text)
+    .text                                    0x08000444   Section        8  libspace.o(.text)
+    .text                                    0x0800044c   Section        0  sys_exit.o(.text)
+    .text                                    0x08000458   Section        2  use_no_semi.o(.text)
+    .text                                    0x0800045a   Section        0  indicate_semi.o(.text)
+    i.ADC_ChannelConfig                      0x0800045a   Section        0  hk32f030m_adc.o(i.ADC_ChannelConfig)
+    i.ADC_Cmd                                0x0800046e   Section        0  hk32f030m_adc.o(i.ADC_Cmd)
+    i.ADC_DeInit                             0x08000488   Section        0  hk32f030m_adc.o(i.ADC_DeInit)
+    i.ADC_GetConversionValue                 0x080004a8   Section        0  hk32f030m_adc.o(i.ADC_GetConversionValue)
+    i.ADC_GetFlagStatus                      0x080004b0   Section        0  hk32f030m_adc.o(i.ADC_GetFlagStatus)
+    i.ADC_Init                               0x080004e0   Section        0  hk32f030m_adc.o(i.ADC_Init)
+    i.ADC_StartOfConversion                  0x08000508   Section        0  hk32f030m_adc.o(i.ADC_StartOfConversion)
+    i.ADC_StructInit                         0x08000512   Section        0  hk32f030m_adc.o(i.ADC_StructInit)
+    i.GPIO_Init                              0x08000520   Section        0  hk32f030m_gpio.o(i.GPIO_Init)
+    i.GPIO_PinAFConfig                       0x080005c6   Section        0  hk32f030m_gpio.o(i.GPIO_PinAFConfig)
+    i.GPIO_ReadInputDataBit                  0x0800060a   Section        0  hk32f030m_gpio.o(i.GPIO_ReadInputDataBit)
+    i.GPIO_ResetBits                         0x0800061e   Section        0  hk32f030m_gpio.o(i.GPIO_ResetBits)
+    i.GPIO_SetBits                           0x08000622   Section        0  hk32f030m_gpio.o(i.GPIO_SetBits)
+    i.HardFault_Handler                      0x08000626   Section        0  hk32f030m_it.o(i.HardFault_Handler)
+    i.NMI_Handler                            0x0800062a   Section        0  hk32f030m_it.o(i.NMI_Handler)
+    i.NVIC_Init                              0x0800062c   Section        0  hk32f030m_misc.o(i.NVIC_Init)
+    i.NVIC_SetPriority                       0x0800069c   Section        0  drv_systick.o(i.NVIC_SetPriority)
+    NVIC_SetPriority                         0x0800069d   Thumb Code   110  drv_systick.o(i.NVIC_SetPriority)
+    i.PendSV_Handler                         0x08000714   Section        0  hk32f030m_it.o(i.PendSV_Handler)
+    i.RCC_AHBPeriphClockCmd                  0x08000718   Section        0  hk32f030m_rcc.o(i.RCC_AHBPeriphClockCmd)
+    i.RCC_APB1PeriphClockCmd                 0x08000738   Section        0  hk32f030m_rcc.o(i.RCC_APB1PeriphClockCmd)
+    i.RCC_APB2PeriphClockCmd                 0x08000758   Section        0  hk32f030m_rcc.o(i.RCC_APB2PeriphClockCmd)
+    i.RCC_APB2PeriphResetCmd                 0x08000778   Section        0  hk32f030m_rcc.o(i.RCC_APB2PeriphResetCmd)
+    i.RCC_GetClocksFreq                      0x08000798   Section        0  hk32f030m_rcc.o(i.RCC_GetClocksFreq)
+    i.SVC_Handler                            0x080008c4   Section        0  hk32f030m_it.o(i.SVC_Handler)
+    i.SetSysClock                            0x080008c8   Section        0  system_hk32f030m.o(i.SetSysClock)
+    SetSysClock                              0x080008c9   Thumb Code    70  system_hk32f030m.o(i.SetSysClock)
+    i.SetSysClockToHSI_32M                   0x0800091c   Section        0  system_hk32f030m.o(i.SetSysClockToHSI_32M)
+    SetSysClockToHSI_32M                     0x0800091d   Thumb Code   220  system_hk32f030m.o(i.SetSysClockToHSI_32M)
+    i.SysTick_CLKSourceConfig                0x08000a04   Section        0  hk32f030m_misc.o(i.SysTick_CLKSourceConfig)
+    i.SysTick_Handler                        0x08000a28   Section        0  drv_systick.o(i.SysTick_Handler)
+    i.SystemInit                             0x08000a30   Section        0  system_hk32f030m.o(i.SystemInit)
+    i.TIM_Cmd                                0x08000a74   Section        0  hk32f030m_tim.o(i.TIM_Cmd)
+    i.TIM_CtrlPWMOutputs                     0x08000a90   Section        0  hk32f030m_tim.o(i.TIM_CtrlPWMOutputs)
+    i.TIM_OC1Init                            0x08000aac   Section        0  hk32f030m_tim.o(i.TIM_OC1Init)
+    i.TIM_OC1PreloadConfig                   0x08000b24   Section        0  hk32f030m_tim.o(i.TIM_OC1PreloadConfig)
+    i.TIM_OC2Init                            0x08000b40   Section        0  hk32f030m_tim.o(i.TIM_OC2Init)
+    i.TIM_OC2PreloadConfig                   0x08000be8   Section        0  hk32f030m_tim.o(i.TIM_OC2PreloadConfig)
+    i.TIM_OC3Init                            0x08000c04   Section        0  hk32f030m_tim.o(i.TIM_OC3Init)
+    i.TIM_OC3PreloadConfig                   0x08000ca4   Section        0  hk32f030m_tim.o(i.TIM_OC3PreloadConfig)
+    i.TIM_OC4Init                            0x08000cc0   Section        0  hk32f030m_tim.o(i.TIM_OC4Init)
+    i.TIM_OC4PreloadConfig                   0x08000d38   Section        0  hk32f030m_tim.o(i.TIM_OC4PreloadConfig)
+    i.TIM_SetCompare1                        0x08000d54   Section        0  hk32f030m_tim.o(i.TIM_SetCompare1)
+    i.TIM_SetCompare2                        0x08000d58   Section        0  hk32f030m_tim.o(i.TIM_SetCompare2)
+    i.TIM_SetCompare4                        0x08000d5c   Section        0  hk32f030m_tim.o(i.TIM_SetCompare4)
+    i.TIM_TimeBaseInit                       0x08000d60   Section        0  hk32f030m_tim.o(i.TIM_TimeBaseInit)
+    i.USART1_IRQHandler                      0x08000db4   Section        0  drv_usart.o(i.USART1_IRQHandler)
+    i.USART_ClearFlag                        0x08000df4   Section        0  hk32f030m_usart.o(i.USART_ClearFlag)
+    i.USART_Cmd                              0x08000df8   Section        0  hk32f030m_usart.o(i.USART_Cmd)
+    i.USART_GetFlagStatus                    0x08000e10   Section        0  hk32f030m_usart.o(i.USART_GetFlagStatus)
+    i.USART_GetITStatus                      0x08000e24   Section        0  hk32f030m_usart.o(i.USART_GetITStatus)
+    i.USART_ITConfig                         0x08000e72   Section        0  hk32f030m_usart.o(i.USART_ITConfig)
+    i.USART_Init                             0x08000eb4   Section        0  hk32f030m_usart.o(i.USART_Init)
+    i.USART_ReceiveData                      0x08000f8c   Section        0  hk32f030m_usart.o(i.USART_ReceiveData)
+    i.USART_SendData                         0x08000f96   Section        0  hk32f030m_usart.o(i.USART_SendData)
+    i.__ARM_common_switch8                   0x08000f9e   Section        0  drv_pwm.o(i.__ARM_common_switch8)
+    i.adc_gpio_init                          0x08000fbc   Section        0  drv_adc.o(i.adc_gpio_init)
+    i.adc_init                               0x08000fec   Section        0  drv_adc.o(i.adc_init)
+    i.charge_detection_gpio_init             0x08001048   Section        0  charge_detection.o(i.charge_detection_gpio_init)
+    i.charge_detection_process               0x08001070   Section        0  charge_detection.o(i.charge_detection_process)
+    i.get_adc                                0x080010e8   Section        0  drv_adc.o(i.get_adc)
+    i.get_adc_average                        0x08001108   Section        0  drv_adc.o(i.get_adc_average)
+    i.get_bat_leave                          0x08001130   Section        0  sys_power.o(i.get_bat_leave)
+    i.get_charge_status                      0x08001174   Section        0  charge_detection.o(i.get_charge_status)
+    i.get_sys_tick                           0x0800118c   Section        0  sys_time.o(i.get_sys_tick)
+    i.is_timeout                             0x08001198   Section        0  sys_time.o(i.is_timeout)
+    i.main                                   0x080011b0   Section        0  main.o(i.main)
+    i.modulator_ctrl                         0x080011dc   Section        0  modulator.o(i.modulator_ctrl)
+    i.modulator_process                      0x08001218   Section        0  modulator.o(i.modulator_process)
+    i.pd_usb_gpio_init                       0x0800137c   Section        0  sys_power.o(i.pd_usb_gpio_init)
+    i.pwm_gpio_init                          0x080013a4   Section        0  drv_pwm.o(i.pwm_gpio_init)
+    i.pwm_init                               0x08001430   Section        0  drv_pwm.o(i.pwm_init)
+    i.read_data                              0x08001528   Section        0  system_process.o(i.read_data)
+    read_data                                0x08001529   Thumb Code    20  system_process.o(i.read_data)
+    i.ring_buf_get                           0x08001540   Section        0  sys_ringbuffer.o(i.ring_buf_get)
+    i.ring_buf_init                          0x080015a8   Section        0  sys_ringbuffer.o(i.ring_buf_init)
+    i.ring_buf_put                           0x080015c8   Section        0  sys_ringbuffer.o(i.ring_buf_put)
+    i.send_charge_detection                  0x08001634   Section        0  charge_detection.o(i.send_charge_detection)
+    i.set_pwm_duty_cycle                     0x0800167c   Section        0  drv_pwm.o(i.set_pwm_duty_cycle)
+    i.slave_init                             0x080016d8   Section        0  system_process.o(i.slave_init)
+    i.slave_put                              0x080016f0   Section        0  system_process.o(i.slave_put)
+    i.slave_recv_data                        0x08001704   Section        0  system_process.o(i.slave_recv_data)
+    i.slave_recv_process                     0x080017a8   Section        0  system_process.o(i.slave_recv_process)
+    i.slave_send_data                        0x0800189c   Section        0  system_process.o(i.slave_send_data)
+    i.sys_board_gpio_init                    0x080018d4   Section        0  drv_gpio.o(i.sys_board_gpio_init)
+    i.sys_power_gpio_init                    0x080018ec   Section        0  sys_power.o(i.sys_power_gpio_init)
+    i.sys_task_create                        0x0800191c   Section        0  sys_task.o(i.sys_task_create)
+    i.sys_task_process                       0x08001968   Section        0  sys_task.o(i.sys_task_process)
+    i.sys_task_start                         0x080019a0   Section        0  sys_task.o(i.sys_task_start)
+    i.sys_tick_count                         0x080019a8   Section        0  sys_time.o(i.sys_tick_count)
+    i.system_power_disable                   0x080019b8   Section        0  sys_power.o(i.system_power_disable)
+    i.system_power_enable                    0x080019c8   Section        0  sys_power.o(i.system_power_enable)
+    i.system_process                         0x080019d8   Section        0  system_process.o(i.system_process)
+    i.system_usb_disable                     0x080019e0   Section        0  sys_power.o(i.system_usb_disable)
+    i.system_usb_enable                      0x080019ee   Section        0  sys_power.o(i.system_usb_enable)
+    i.systick_init                           0x080019fc   Section        0  drv_systick.o(i.systick_init)
+    i.task_start                             0x08001a3c   Section        0  main.o(i.task_start)
+    i.uart_init                              0x08001a88   Section        0  drv_usart.o(i.uart_init)
+    i.usart_send_bytes                       0x08001b44   Section        0  drv_usart.o(i.usart_send_bytes)
+    .constdata                               0x08001b88   Section       40  hk32f030m_rcc.o(.constdata)
+    .data                                    0x20000000   Section        8  system_process.o(.data)
+    recv_index                               0x20000000   Data           1  system_process.o(.data)
+    send_buf                                 0x20000001   Data           2  system_process.o(.data)
+    setp                                     0x20000003   Data           1  system_process.o(.data)
+    mode                                     0x20000004   Data           1  system_process.o(.data)
+    recv_tick                                0x20000006   Data           2  system_process.o(.data)
+    .data                                    0x20000008   Section        3  charge_detection.o(.data)
+    last_status                              0x20000008   Data           1  charge_detection.o(.data)
+    higth_cnt                                0x20000009   Data           1  charge_detection.o(.data)
+    low_cnt                                  0x2000000a   Data           1  charge_detection.o(.data)
+    .data                                    0x2000000c   Section       18  modulator.o(.data)
+    .data                                    0x20000020   Section        4  sys_task.o(.data)
+    .data                                    0x20000024   Section        2  sys_time.o(.data)
+    sys_tick                                 0x20000024   Data           2  sys_time.o(.data)
+    .bss                                     0x20000028   Section      282  system_process.o(.bss)
+    recv_buf                                 0x20000038   Data          10  system_process.o(.bss)
+    .bss                                     0x20000144   Section       60  main.o(.bss)
+    .bss                                     0x20000180   Section       96  libspace.o(.bss)
+    HEAP                                     0x200001e0   Section      512  keil_startup_hk32f030m.o(HEAP)
+    Heap_Mem                                 0x200001e0   Data         512  keil_startup_hk32f030m.o(HEAP)
+    STACK                                    0x200003e0   Section      512  keil_startup_hk32f030m.o(STACK)
+    Stack_Mem                                0x200003e0   Data         512  keil_startup_hk32f030m.o(STACK)
+    __initial_sp                             0x200005e0   Data           0  keil_startup_hk32f030m.o(STACK)
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THM_ISAv3M$S$PE$A:L22$X:L11$S22$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OSPACE$ROPI$EBA8$UX$STANDARDLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    __ARM_use_no_argv                        0x00000000   Number         0  main.o ABSOLUTE
+    __ARM_exceptions_init                     - Undefined Weak Reference
+    __alloca_initialize                       - Undefined Weak Reference
+    __arm_fini_                               - Undefined Weak Reference
+    __arm_preinit_                            - Undefined Weak Reference
+    __cpp_initialize__aeabi_                  - Undefined Weak Reference
+    __cxa_finalize                            - Undefined Weak Reference
+    __rt_locale                               - Undefined Weak Reference
+    __sigvec_lookup                           - Undefined Weak Reference
+    _atexit_init                              - Undefined Weak Reference
+    _call_atexit_fns                          - Undefined Weak Reference
+    _clock_init                               - Undefined Weak Reference
+    _fp_trap_init                             - Undefined Weak Reference
+    _fp_trap_shutdown                         - Undefined Weak Reference
+    _get_lc_collate                           - Undefined Weak Reference
+    _get_lc_ctype                             - Undefined Weak Reference
+    _get_lc_monetary                          - Undefined Weak Reference
+    _get_lc_numeric                           - Undefined Weak Reference
+    _get_lc_time                              - Undefined Weak Reference
+    _getenv_init                              - Undefined Weak Reference
+    _handle_redirection                       - Undefined Weak Reference
+    _init_alloc                               - Undefined Weak Reference
+    _init_user_alloc                          - Undefined Weak Reference
+    _initio                                   - Undefined Weak Reference
+    _rand_init                                - Undefined Weak Reference
+    _signal_finish                            - Undefined Weak Reference
+    _signal_init                              - Undefined Weak Reference
+    _terminate_alloc                          - Undefined Weak Reference
+    _terminate_user_alloc                     - Undefined Weak Reference
+    _terminateio                              - Undefined Weak Reference
+    __Vectors_Size                           0x000000c0   Number         0  keil_startup_hk32f030m.o ABSOLUTE
+    __Vectors                                0x08000000   Data           4  keil_startup_hk32f030m.o(RESET)
+    __Vectors_End                            0x080000c0   Data           0  keil_startup_hk32f030m.o(RESET)
+    __main                                   0x080000c1   Thumb Code     8  __main.o(!!!main)
+    __scatterload                            0x080000c9   Thumb Code     0  __scatter.o(!!!scatter)
+    __scatterload_rt2                        0x080000c9   Thumb Code    52  __scatter.o(!!!scatter)
+    __scatterload_rt2_thumb_only             0x080000c9   Thumb Code     0  __scatter.o(!!!scatter)
+    __scatterload_null                       0x080000d9   Thumb Code     0  __scatter.o(!!!scatter)
+    __scatterload_copy                       0x08000105   Thumb Code    26  __scatter_copy.o(!!handler_copy)
+    __scatterload_zeroinit                   0x08000121   Thumb Code    28  __scatter_zi.o(!!handler_zi)
+    __rt_lib_init                            0x0800013d   Thumb Code     0  libinit.o(.ARM.Collect$$libinit$$00000000)
+    __rt_lib_init_alloca_1                   0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000002E)
+    __rt_lib_init_argv_1                     0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000002C)
+    __rt_lib_init_atexit_1                   0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001B)
+    __rt_lib_init_clock_1                    0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000021)
+    __rt_lib_init_cpp_1                      0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000032)
+    __rt_lib_init_exceptions_1               0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000030)
+    __rt_lib_init_fp_1                       0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000002)
+    __rt_lib_init_fp_trap_1                  0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001F)
+    __rt_lib_init_getenv_1                   0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000023)
+    __rt_lib_init_heap_1                     0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000000A)
+    __rt_lib_init_lc_collate_1               0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000011)
+    __rt_lib_init_lc_ctype_1                 0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000013)
+    __rt_lib_init_lc_monetary_1              0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000015)
+    __rt_lib_init_lc_numeric_1               0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000017)
+    __rt_lib_init_lc_time_1                  0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000019)
+    __rt_lib_init_preinit_1                  0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000004)
+    __rt_lib_init_rand_1                     0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000000E)
+    __rt_lib_init_return                     0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000033)
+    __rt_lib_init_signal_1                   0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001D)
+    __rt_lib_init_stdio_1                    0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000025)
+    __rt_lib_init_user_alloc_1               0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000000C)
+    __rt_lib_shutdown                        0x08000141   Thumb Code     0  libshutdown.o(.ARM.Collect$$libshutdown$$00000000)
+    __rt_lib_shutdown_cpp_1                  0x08000143   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000004)
+    __rt_lib_shutdown_fini_1                 0x08000143   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000002)
+    __rt_lib_shutdown_fp_trap_1              0x08000143   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000009)
+    __rt_lib_shutdown_heap_1                 0x08000143   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000011)
+    __rt_lib_shutdown_return                 0x08000143   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000012)
+    __rt_lib_shutdown_signal_1               0x08000143   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C)
+    __rt_lib_shutdown_stdio_1                0x08000143   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000006)
+    __rt_lib_shutdown_user_alloc_1           0x08000143   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000E)
+    __rt_entry                               0x08000145   Thumb Code     0  __rtentry.o(.ARM.Collect$$rtentry$$00000000)
+    __rt_entry_presh_1                       0x08000145   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$00000002)
+    __rt_entry_sh                            0x08000145   Thumb Code     0  __rtentry4.o(.ARM.Collect$$rtentry$$00000004)
+    __rt_entry_li                            0x0800014b   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000A)
+    __rt_entry_postsh_1                      0x0800014b   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$00000009)
+    __rt_entry_main                          0x0800014f   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
+    __rt_entry_postli_1                      0x0800014f   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000C)
+    __rt_exit                                0x08000157   Thumb Code     0  rtexit.o(.ARM.Collect$$rtexit$$00000000)
+    __rt_exit_ls                             0x08000159   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000003)
+    __rt_exit_prels_1                        0x08000159   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000002)
+    __rt_exit_exit                           0x0800015d   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000004)
+    __aeabi_memcpy4                          0x08000165   Thumb Code    56  rt_memcpy.o(.emb_text)
+    __aeabi_memcpy8                          0x08000165   Thumb Code     0  rt_memcpy.o(.emb_text)
+    Reset_Handler                            0x0800019d   Thumb Code     8  keil_startup_hk32f030m.o(.text)
+    ADC1_IRQHandler                          0x080001af   Thumb Code     0  keil_startup_hk32f030m.o(.text)
+    EXTI0_IRQHandler                         0x080001af   Thumb Code     0  keil_startup_hk32f030m.o(.text)
+    EXTI11_IRQHandler                        0x080001af   Thumb Code     0  keil_startup_hk32f030m.o(.text)
+    EXTI1_IRQHandler                         0x080001af   Thumb Code     0  keil_startup_hk32f030m.o(.text)
+    EXTI2_IRQHandler                         0x080001af   Thumb Code     0  keil_startup_hk32f030m.o(.text)
+    EXTI3_IRQHandler                         0x080001af   Thumb Code     0  keil_startup_hk32f030m.o(.text)
+    EXTI4_IRQHandler                         0x080001af   Thumb Code     0  keil_startup_hk32f030m.o(.text)
+    EXTI5_IRQHandler                         0x080001af   Thumb Code     0  keil_startup_hk32f030m.o(.text)
+    EXTI6_IRQHandler                         0x080001af   Thumb Code     0  keil_startup_hk32f030m.o(.text)
+    EXTI7_IRQHandler                         0x080001af   Thumb Code     0  keil_startup_hk32f030m.o(.text)
+    FLASH_IRQHandler                         0x080001af   Thumb Code     0  keil_startup_hk32f030m.o(.text)
+    I2C1_IRQHandler                          0x080001af   Thumb Code     0  keil_startup_hk32f030m.o(.text)
+    RCC_IRQHandler                           0x080001af   Thumb Code     0  keil_startup_hk32f030m.o(.text)
+    SPI1_IRQHandler                          0x080001af   Thumb Code     0  keil_startup_hk32f030m.o(.text)
+    TIM1_BRK_IRQHandler                      0x080001af   Thumb Code     0  keil_startup_hk32f030m.o(.text)
+    TIM1_CC_IRQHandler                       0x080001af   Thumb Code     0  keil_startup_hk32f030m.o(.text)
+    TIM1_UP_TRG_COM_IRQHandler               0x080001af   Thumb Code     0  keil_startup_hk32f030m.o(.text)
+    TIM2_IRQHandler                          0x080001af   Thumb Code     0  keil_startup_hk32f030m.o(.text)
+    TIM6_IRQHandler                          0x080001af   Thumb Code     0  keil_startup_hk32f030m.o(.text)
+    WWDG_IRQHandler                          0x080001af   Thumb Code     0  keil_startup_hk32f030m.o(.text)
+    __user_initial_stackheap                 0x080001b1   Thumb Code     0  keil_startup_hk32f030m.o(.text)
+    __aeabi_memcpy                           0x080001d5   Thumb Code   130  rt_memcpy.o(.text)
+    __rt_memcpy                              0x080001d5   Thumb Code     0  rt_memcpy.o(.text)
+    _memset_w                                0x08000257   Thumb Code    26  rt_memclr.o(.text)
+    _memset                                  0x08000271   Thumb Code    30  rt_memclr.o(.text)
+    __aeabi_memclr                           0x0800028f   Thumb Code     4  rt_memclr.o(.text)
+    __rt_memclr                              0x0800028f   Thumb Code     0  rt_memclr.o(.text)
+    __aeabi_memclr4                          0x08000293   Thumb Code     0  rt_memclr.o(.text)
+    __aeabi_memclr8                          0x08000293   Thumb Code     0  rt_memclr.o(.text)
+    __rt_memclr_w                            0x08000293   Thumb Code     4  rt_memclr.o(.text)
+    __aeabi_uidiv                            0x08000297   Thumb Code     0  aeabi_sdiv.o(.text)
+    __aeabi_uidivmod                         0x08000297   Thumb Code    20  aeabi_sdiv.o(.text)
+    __aeabi_idiv                             0x080002ab   Thumb Code     0  aeabi_sdiv.o(.text)
+    __aeabi_idivmod                          0x080002ab   Thumb Code   326  aeabi_sdiv.o(.text)
+    __use_two_region_memory                  0x080003f1   Thumb Code     2  heapauxi.o(.text)
+    __rt_heap_escrow$2region                 0x080003f3   Thumb Code     2  heapauxi.o(.text)
+    __rt_heap_expand$2region                 0x080003f5   Thumb Code     2  heapauxi.o(.text)
+    __user_setup_stackheap                   0x080003f7   Thumb Code    62  sys_stackheap_outer.o(.text)
+    exit                                     0x08000435   Thumb Code    16  exit.o(.text)
+    __user_libspace                          0x08000445   Thumb Code     8  libspace.o(.text)
+    __user_perproc_libspace                  0x08000445   Thumb Code     0  libspace.o(.text)
+    __user_perthread_libspace                0x08000445   Thumb Code     0  libspace.o(.text)
+    _sys_exit                                0x0800044d   Thumb Code     8  sys_exit.o(.text)
+    __I$use$semihosting                      0x08000459   Thumb Code     0  use_no_semi.o(.text)
+    __use_no_semihosting_swi                 0x08000459   Thumb Code     2  use_no_semi.o(.text)
+    ADC_ChannelConfig                        0x0800045b   Thumb Code    20  hk32f030m_adc.o(i.ADC_ChannelConfig)
+    __semihosting_library_function           0x0800045b   Thumb Code     0  indicate_semi.o(.text)
+    ADC_Cmd                                  0x0800046f   Thumb Code    24  hk32f030m_adc.o(i.ADC_Cmd)
+    ADC_DeInit                               0x08000489   Thumb Code    28  hk32f030m_adc.o(i.ADC_DeInit)
+    ADC_GetConversionValue                   0x080004a9   Thumb Code     8  hk32f030m_adc.o(i.ADC_GetConversionValue)
+    ADC_GetFlagStatus                        0x080004b1   Thumb Code    48  hk32f030m_adc.o(i.ADC_GetFlagStatus)
+    ADC_Init                                 0x080004e1   Thumb Code    36  hk32f030m_adc.o(i.ADC_Init)
+    ADC_StartOfConversion                    0x08000509   Thumb Code    10  hk32f030m_adc.o(i.ADC_StartOfConversion)
+    ADC_StructInit                           0x08000513   Thumb Code    14  hk32f030m_adc.o(i.ADC_StructInit)
+    GPIO_Init                                0x08000521   Thumb Code   166  hk32f030m_gpio.o(i.GPIO_Init)
+    GPIO_PinAFConfig                         0x080005c7   Thumb Code    68  hk32f030m_gpio.o(i.GPIO_PinAFConfig)
+    GPIO_ReadInputDataBit                    0x0800060b   Thumb Code    20  hk32f030m_gpio.o(i.GPIO_ReadInputDataBit)
+    GPIO_ResetBits                           0x0800061f   Thumb Code     4  hk32f030m_gpio.o(i.GPIO_ResetBits)
+    GPIO_SetBits                             0x08000623   Thumb Code     4  hk32f030m_gpio.o(i.GPIO_SetBits)
+    HardFault_Handler                        0x08000627   Thumb Code     4  hk32f030m_it.o(i.HardFault_Handler)
+    NMI_Handler                              0x0800062b   Thumb Code     2  hk32f030m_it.o(i.NMI_Handler)
+    NVIC_Init                                0x0800062d   Thumb Code   106  hk32f030m_misc.o(i.NVIC_Init)
+    PendSV_Handler                           0x08000715   Thumb Code     2  hk32f030m_it.o(i.PendSV_Handler)
+    RCC_AHBPeriphClockCmd                    0x08000719   Thumb Code    28  hk32f030m_rcc.o(i.RCC_AHBPeriphClockCmd)
+    RCC_APB1PeriphClockCmd                   0x08000739   Thumb Code    28  hk32f030m_rcc.o(i.RCC_APB1PeriphClockCmd)
+    RCC_APB2PeriphClockCmd                   0x08000759   Thumb Code    28  hk32f030m_rcc.o(i.RCC_APB2PeriphClockCmd)
+    RCC_APB2PeriphResetCmd                   0x08000779   Thumb Code    28  hk32f030m_rcc.o(i.RCC_APB2PeriphResetCmd)
+    RCC_GetClocksFreq                        0x08000799   Thumb Code   274  hk32f030m_rcc.o(i.RCC_GetClocksFreq)
+    SVC_Handler                              0x080008c5   Thumb Code     2  hk32f030m_it.o(i.SVC_Handler)
+    SysTick_CLKSourceConfig                  0x08000a05   Thumb Code    32  hk32f030m_misc.o(i.SysTick_CLKSourceConfig)
+    SysTick_Handler                          0x08000a29   Thumb Code     8  drv_systick.o(i.SysTick_Handler)
+    SystemInit                               0x08000a31   Thumb Code    54  system_hk32f030m.o(i.SystemInit)
+    TIM_Cmd                                  0x08000a75   Thumb Code    24  hk32f030m_tim.o(i.TIM_Cmd)
+    TIM_CtrlPWMOutputs                       0x08000a91   Thumb Code    26  hk32f030m_tim.o(i.TIM_CtrlPWMOutputs)
+    TIM_OC1Init                              0x08000aad   Thumb Code   106  hk32f030m_tim.o(i.TIM_OC1Init)
+    TIM_OC1PreloadConfig                     0x08000b25   Thumb Code    22  hk32f030m_tim.o(i.TIM_OC1PreloadConfig)
+    TIM_OC2Init                              0x08000b41   Thumb Code   142  hk32f030m_tim.o(i.TIM_OC2Init)
+    TIM_OC2PreloadConfig                     0x08000be9   Thumb Code    22  hk32f030m_tim.o(i.TIM_OC2PreloadConfig)
+    TIM_OC3Init                              0x08000c05   Thumb Code   130  hk32f030m_tim.o(i.TIM_OC3Init)
+    TIM_OC3PreloadConfig                     0x08000ca5   Thumb Code    22  hk32f030m_tim.o(i.TIM_OC3PreloadConfig)
+    TIM_OC4Init                              0x08000cc1   Thumb Code    94  hk32f030m_tim.o(i.TIM_OC4Init)
+    TIM_OC4PreloadConfig                     0x08000d39   Thumb Code    22  hk32f030m_tim.o(i.TIM_OC4PreloadConfig)
+    TIM_SetCompare1                          0x08000d55   Thumb Code     4  hk32f030m_tim.o(i.TIM_SetCompare1)
+    TIM_SetCompare2                          0x08000d59   Thumb Code     4  hk32f030m_tim.o(i.TIM_SetCompare2)
+    TIM_SetCompare4                          0x08000d5d   Thumb Code     4  hk32f030m_tim.o(i.TIM_SetCompare4)
+    TIM_TimeBaseInit                         0x08000d61   Thumb Code    68  hk32f030m_tim.o(i.TIM_TimeBaseInit)
+    USART1_IRQHandler                        0x08000db5   Thumb Code    56  drv_usart.o(i.USART1_IRQHandler)
+    USART_ClearFlag                          0x08000df5   Thumb Code     4  hk32f030m_usart.o(i.USART_ClearFlag)
+    USART_Cmd                                0x08000df9   Thumb Code    24  hk32f030m_usart.o(i.USART_Cmd)
+    USART_GetFlagStatus                      0x08000e11   Thumb Code    20  hk32f030m_usart.o(i.USART_GetFlagStatus)
+    USART_GetITStatus                        0x08000e25   Thumb Code    78  hk32f030m_usart.o(i.USART_GetITStatus)
+    USART_ITConfig                           0x08000e73   Thumb Code    66  hk32f030m_usart.o(i.USART_ITConfig)
+    USART_Init                               0x08000eb5   Thumb Code   204  hk32f030m_usart.o(i.USART_Init)
+    USART_ReceiveData                        0x08000f8d   Thumb Code    10  hk32f030m_usart.o(i.USART_ReceiveData)
+    USART_SendData                           0x08000f97   Thumb Code     8  hk32f030m_usart.o(i.USART_SendData)
+    __ARM_common_switch8                     0x08000f9f   Thumb Code    28  drv_pwm.o(i.__ARM_common_switch8)
+    adc_gpio_init                            0x08000fbd   Thumb Code    44  drv_adc.o(i.adc_gpio_init)
+    adc_init                                 0x08000fed   Thumb Code    86  drv_adc.o(i.adc_init)
+    charge_detection_gpio_init               0x08001049   Thumb Code    40  charge_detection.o(i.charge_detection_gpio_init)
+    charge_detection_process                 0x08001071   Thumb Code   106  charge_detection.o(i.charge_detection_process)
+    get_adc                                  0x080010e9   Thumb Code    26  drv_adc.o(i.get_adc)
+    get_adc_average                          0x08001109   Thumb Code    40  drv_adc.o(i.get_adc_average)
+    get_bat_leave                            0x08001131   Thumb Code    60  sys_power.o(i.get_bat_leave)
+    get_charge_status                        0x08001175   Thumb Code    24  charge_detection.o(i.get_charge_status)
+    get_sys_tick                             0x0800118d   Thumb Code     6  sys_time.o(i.get_sys_tick)
+    is_timeout                               0x08001199   Thumb Code    24  sys_time.o(i.is_timeout)
+    main                                     0x080011b1   Thumb Code    42  main.o(i.main)
+    modulator_ctrl                           0x080011dd   Thumb Code    54  modulator.o(i.modulator_ctrl)
+    modulator_process                        0x08001219   Thumb Code   338  modulator.o(i.modulator_process)
+    pd_usb_gpio_init                         0x0800137d   Thumb Code    40  sys_power.o(i.pd_usb_gpio_init)
+    pwm_gpio_init                            0x080013a5   Thumb Code   130  drv_pwm.o(i.pwm_gpio_init)
+    pwm_init                                 0x08001431   Thumb Code   242  drv_pwm.o(i.pwm_init)
+    ring_buf_get                             0x08001541   Thumb Code   104  sys_ringbuffer.o(i.ring_buf_get)
+    ring_buf_init                            0x080015a9   Thumb Code    32  sys_ringbuffer.o(i.ring_buf_init)
+    ring_buf_put                             0x080015c9   Thumb Code   108  sys_ringbuffer.o(i.ring_buf_put)
+    send_charge_detection                    0x08001635   Thumb Code    60  charge_detection.o(i.send_charge_detection)
+    set_pwm_duty_cycle                       0x0800167d   Thumb Code    86  drv_pwm.o(i.set_pwm_duty_cycle)
+    slave_init                               0x080016d9   Thumb Code    16  system_process.o(i.slave_init)
+    slave_put                                0x080016f1   Thumb Code    14  system_process.o(i.slave_put)
+    slave_recv_data                          0x08001705   Thumb Code   156  system_process.o(i.slave_recv_data)
+    slave_recv_process                       0x080017a9   Thumb Code   224  system_process.o(i.slave_recv_process)
+    slave_send_data                          0x0800189d   Thumb Code    46  system_process.o(i.slave_send_data)
+    sys_board_gpio_init                      0x080018d5   Thumb Code    24  drv_gpio.o(i.sys_board_gpio_init)
+    sys_power_gpio_init                      0x080018ed   Thumb Code    42  sys_power.o(i.sys_power_gpio_init)
+    sys_task_create                          0x0800191d   Thumb Code    70  sys_task.o(i.sys_task_create)
+    sys_task_process                         0x08001969   Thumb Code    50  sys_task.o(i.sys_task_process)
+    sys_task_start                           0x080019a1   Thumb Code     6  sys_task.o(i.sys_task_start)
+    sys_tick_count                           0x080019a9   Thumb Code    12  sys_time.o(i.sys_tick_count)
+    system_power_disable                     0x080019b9   Thumb Code    12  sys_power.o(i.system_power_disable)
+    system_power_enable                      0x080019c9   Thumb Code    12  sys_power.o(i.system_power_enable)
+    system_process                           0x080019d9   Thumb Code     8  system_process.o(i.system_process)
+    system_usb_disable                       0x080019e1   Thumb Code    14  sys_power.o(i.system_usb_disable)
+    system_usb_enable                        0x080019ef   Thumb Code    14  sys_power.o(i.system_usb_enable)
+    systick_init                             0x080019fd   Thumb Code    52  drv_systick.o(i.systick_init)
+    task_start                               0x08001a3d   Thumb Code    52  main.o(i.task_start)
+    uart_init                                0x08001a89   Thumb Code   174  drv_usart.o(i.uart_init)
+    usart_send_bytes                         0x08001b45   Thumb Code    62  drv_usart.o(i.usart_send_bytes)
+    AHBPrescTable                            0x08001b88   Data          32  hk32f030m_rcc.o(.constdata)
+    APBPrescTable                            0x08001ba8   Data           8  hk32f030m_rcc.o(.constdata)
+    Region$$Table$$Base                      0x08001bb0   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08001bd0   Number         0  anon$$obj.o(Region$$Table)
+    target_port                              0x2000000c   Data           8  modulator.o(.data)
+    brightness                               0x20000014   Data           4  modulator.o(.data)
+    warm                                     0x20000018   Data           4  modulator.o(.data)
+    total                                    0x2000001c   Data           2  modulator.o(.data)
+    sys_task_head                            0x20000020   Data           4  sys_task.o(.data)
+    slave_ringbuf                            0x20000028   Data          16  system_process.o(.bss)
+    slave_ringbufer                          0x20000042   Data         256  system_process.o(.bss)
+    modulator_task                           0x20000144   Data          20  main.o(.bss)
+    system_task                              0x20000158   Data          20  main.o(.bss)
+    charge_detection_task                    0x2000016c   Data          20  main.o(.bss)
+    __libspace_start                         0x20000180   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x200001e0   Data           0  libspace.o(.bss)
+
+
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x080000c1
+
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00001bf8, Max: 0x00004000, ABSOLUTE)
+
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00001bd0, Max: 0x00004000, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x08000000   0x08000000   0x000000c0   Data   RO         3231    RESET               keil_startup_hk32f030m.o
+    0x080000c0   0x080000c0   0x00000008   Code   RO         3511  * !!!main             c_p.l(__main.o)
+    0x080000c8   0x080000c8   0x0000003c   Code   RO         3682    !!!scatter          c_p.l(__scatter.o)
+    0x08000104   0x08000104   0x0000001a   Code   RO         3684    !!handler_copy      c_p.l(__scatter_copy.o)
+    0x0800011e   0x0800011e   0x00000002   PAD
+    0x08000120   0x08000120   0x0000001c   Code   RO         3686    !!handler_zi        c_p.l(__scatter_zi.o)
+    0x0800013c   0x0800013c   0x00000002   Code   RO         3549    .ARM.Collect$$libinit$$00000000  c_p.l(libinit.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         3563    .ARM.Collect$$libinit$$00000002  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         3565    .ARM.Collect$$libinit$$00000004  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         3568    .ARM.Collect$$libinit$$0000000A  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         3570    .ARM.Collect$$libinit$$0000000C  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         3572    .ARM.Collect$$libinit$$0000000E  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         3575    .ARM.Collect$$libinit$$00000011  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         3577    .ARM.Collect$$libinit$$00000013  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         3579    .ARM.Collect$$libinit$$00000015  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         3581    .ARM.Collect$$libinit$$00000017  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         3583    .ARM.Collect$$libinit$$00000019  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         3585    .ARM.Collect$$libinit$$0000001B  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         3587    .ARM.Collect$$libinit$$0000001D  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         3589    .ARM.Collect$$libinit$$0000001F  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         3591    .ARM.Collect$$libinit$$00000021  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         3593    .ARM.Collect$$libinit$$00000023  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         3595    .ARM.Collect$$libinit$$00000025  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         3599    .ARM.Collect$$libinit$$0000002C  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         3601    .ARM.Collect$$libinit$$0000002E  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         3603    .ARM.Collect$$libinit$$00000030  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         3605    .ARM.Collect$$libinit$$00000032  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000002   Code   RO         3606    .ARM.Collect$$libinit$$00000033  c_p.l(libinit2.o)
+    0x08000140   0x08000140   0x00000002   Code   RO         3637    .ARM.Collect$$libshutdown$$00000000  c_p.l(libshutdown.o)
+    0x08000142   0x08000142   0x00000000   Code   RO         3663    .ARM.Collect$$libshutdown$$00000002  c_p.l(libshutdown2.o)
+    0x08000142   0x08000142   0x00000000   Code   RO         3665    .ARM.Collect$$libshutdown$$00000004  c_p.l(libshutdown2.o)
+    0x08000142   0x08000142   0x00000000   Code   RO         3667    .ARM.Collect$$libshutdown$$00000006  c_p.l(libshutdown2.o)
+    0x08000142   0x08000142   0x00000000   Code   RO         3670    .ARM.Collect$$libshutdown$$00000009  c_p.l(libshutdown2.o)
+    0x08000142   0x08000142   0x00000000   Code   RO         3673    .ARM.Collect$$libshutdown$$0000000C  c_p.l(libshutdown2.o)
+    0x08000142   0x08000142   0x00000000   Code   RO         3675    .ARM.Collect$$libshutdown$$0000000E  c_p.l(libshutdown2.o)
+    0x08000142   0x08000142   0x00000000   Code   RO         3678    .ARM.Collect$$libshutdown$$00000011  c_p.l(libshutdown2.o)
+    0x08000142   0x08000142   0x00000002   Code   RO         3679    .ARM.Collect$$libshutdown$$00000012  c_p.l(libshutdown2.o)
+    0x08000144   0x08000144   0x00000000   Code   RO         3513    .ARM.Collect$$rtentry$$00000000  c_p.l(__rtentry.o)
+    0x08000144   0x08000144   0x00000000   Code   RO         3519    .ARM.Collect$$rtentry$$00000002  c_p.l(__rtentry2.o)
+    0x08000144   0x08000144   0x00000006   Code   RO         3531    .ARM.Collect$$rtentry$$00000004  c_p.l(__rtentry4.o)
+    0x0800014a   0x0800014a   0x00000000   Code   RO         3521    .ARM.Collect$$rtentry$$00000009  c_p.l(__rtentry2.o)
+    0x0800014a   0x0800014a   0x00000004   Code   RO         3522    .ARM.Collect$$rtentry$$0000000A  c_p.l(__rtentry2.o)
+    0x0800014e   0x0800014e   0x00000000   Code   RO         3524    .ARM.Collect$$rtentry$$0000000C  c_p.l(__rtentry2.o)
+    0x0800014e   0x0800014e   0x00000008   Code   RO         3525    .ARM.Collect$$rtentry$$0000000D  c_p.l(__rtentry2.o)
+    0x08000156   0x08000156   0x00000002   Code   RO         3554    .ARM.Collect$$rtexit$$00000000  c_p.l(rtexit.o)
+    0x08000158   0x08000158   0x00000000   Code   RO         3610    .ARM.Collect$$rtexit$$00000002  c_p.l(rtexit2.o)
+    0x08000158   0x08000158   0x00000004   Code   RO         3611    .ARM.Collect$$rtexit$$00000003  c_p.l(rtexit2.o)
+    0x0800015c   0x0800015c   0x00000006   Code   RO         3612    .ARM.Collect$$rtexit$$00000004  c_p.l(rtexit2.o)
+    0x08000162   0x08000162   0x00000002   PAD
+    0x08000164   0x08000164   0x00000038   Code   RO         3499    .emb_text           c_p.l(rt_memcpy.o)
+    0x0800019c   0x0800019c   0x00000038   Code   RO         3232    .text               keil_startup_hk32f030m.o
+    0x080001d4   0x080001d4   0x00000082   Code   RO         3500    .text               c_p.l(rt_memcpy.o)
+    0x08000256   0x08000256   0x00000040   Code   RO         3503    .text               c_p.l(rt_memclr.o)
+    0x08000296   0x08000296   0x0000015a   Code   RO         3505    .text               c_p.l(aeabi_sdiv.o)
+    0x080003f0   0x080003f0   0x00000006   Code   RO         3509    .text               c_p.l(heapauxi.o)
+    0x080003f6   0x080003f6   0x0000003e   Code   RO         3535    .text               c_p.l(sys_stackheap_outer.o)
+    0x08000434   0x08000434   0x00000010   Code   RO         3538    .text               c_p.l(exit.o)
+    0x08000444   0x08000444   0x00000008   Code   RO         3550    .text               c_p.l(libspace.o)
+    0x0800044c   0x0800044c   0x0000000c   Code   RO         3607    .text               c_p.l(sys_exit.o)
+    0x08000458   0x08000458   0x00000002   Code   RO         3626    .text               c_p.l(use_no_semi.o)
+    0x0800045a   0x0800045a   0x00000000   Code   RO         3628    .text               c_p.l(indicate_semi.o)
+    0x0800045a   0x0800045a   0x00000014   Code   RO          688    i.ADC_ChannelConfig  hk32f030m_adc.o
+    0x0800046e   0x0800046e   0x00000018   Code   RO          692    i.ADC_Cmd           hk32f030m_adc.o
+    0x08000486   0x08000486   0x00000002   PAD
+    0x08000488   0x08000488   0x00000020   Code   RO          694    i.ADC_DeInit        hk32f030m_adc.o
+    0x080004a8   0x080004a8   0x00000008   Code   RO          698    i.ADC_GetConversionValue  hk32f030m_adc.o
+    0x080004b0   0x080004b0   0x00000030   Code   RO          699    i.ADC_GetFlagStatus  hk32f030m_adc.o
+    0x080004e0   0x080004e0   0x00000028   Code   RO          702    i.ADC_Init          hk32f030m_adc.o
+    0x08000508   0x08000508   0x0000000a   Code   RO          706    i.ADC_StartOfConversion  hk32f030m_adc.o
+    0x08000512   0x08000512   0x0000000e   Code   RO          708    i.ADC_StructInit    hk32f030m_adc.o
+    0x08000520   0x08000520   0x000000a6   Code   RO         1367    i.GPIO_Init         hk32f030m_gpio.o
+    0x080005c6   0x080005c6   0x00000044   Code   RO         1368    i.GPIO_PinAFConfig  hk32f030m_gpio.o
+    0x0800060a   0x0800060a   0x00000014   Code   RO         1371    i.GPIO_ReadInputDataBit  hk32f030m_gpio.o
+    0x0800061e   0x0800061e   0x00000004   Code   RO         1374    i.GPIO_ResetBits    hk32f030m_gpio.o
+    0x08000622   0x08000622   0x00000004   Code   RO         1375    i.GPIO_SetBits      hk32f030m_gpio.o
+    0x08000626   0x08000626   0x00000004   Code   RO          199    i.HardFault_Handler  hk32f030m_it.o
+    0x0800062a   0x0800062a   0x00000002   Code   RO          200    i.NMI_Handler       hk32f030m_it.o
+    0x0800062c   0x0800062c   0x00000070   Code   RO         1807    i.NVIC_Init         hk32f030m_misc.o
+    0x0800069c   0x0800069c   0x00000078   Code   RO          425    i.NVIC_SetPriority  drv_systick.o
+    0x08000714   0x08000714   0x00000002   Code   RO          201    i.PendSV_Handler    hk32f030m_it.o
+    0x08000716   0x08000716   0x00000002   PAD
+    0x08000718   0x08000718   0x00000020   Code   RO         1897    i.RCC_AHBPeriphClockCmd  hk32f030m_rcc.o
+    0x08000738   0x08000738   0x00000020   Code   RO         1899    i.RCC_APB1PeriphClockCmd  hk32f030m_rcc.o
+    0x08000758   0x08000758   0x00000020   Code   RO         1901    i.RCC_APB2PeriphClockCmd  hk32f030m_rcc.o
+    0x08000778   0x08000778   0x00000020   Code   RO         1902    i.RCC_APB2PeriphResetCmd  hk32f030m_rcc.o
+    0x08000798   0x08000798   0x0000012c   Code   RO         1909    i.RCC_GetClocksFreq  hk32f030m_rcc.o
+    0x080008c4   0x080008c4   0x00000002   Code   RO          202    i.SVC_Handler       hk32f030m_it.o
+    0x080008c6   0x080008c6   0x00000002   PAD
+    0x080008c8   0x080008c8   0x00000054   Code   RO         3238    i.SetSysClock       system_hk32f030m.o
+    0x0800091c   0x0800091c   0x000000e8   Code   RO         3239    i.SetSysClockToHSI_32M  system_hk32f030m.o
+    0x08000a04   0x08000a04   0x00000024   Code   RO         1809    i.SysTick_CLKSourceConfig  hk32f030m_misc.o
+    0x08000a28   0x08000a28   0x00000008   Code   RO          426    i.SysTick_Handler   drv_systick.o
+    0x08000a30   0x08000a30   0x00000044   Code   RO         3241    i.SystemInit        system_hk32f030m.o
+    0x08000a74   0x08000a74   0x0000001c   Code   RO         2333    i.TIM_Cmd           hk32f030m_tim.o
+    0x08000a90   0x08000a90   0x0000001a   Code   RO         2335    i.TIM_CtrlPWMOutputs  hk32f030m_tim.o
+    0x08000aaa   0x08000aaa   0x00000002   PAD
+    0x08000aac   0x08000aac   0x00000078   Code   RO         2360    i.TIM_OC1Init       hk32f030m_tim.o
+    0x08000b24   0x08000b24   0x0000001c   Code   RO         2363    i.TIM_OC1PreloadConfig  hk32f030m_tim.o
+    0x08000b40   0x08000b40   0x000000a8   Code   RO         2365    i.TIM_OC2Init       hk32f030m_tim.o
+    0x08000be8   0x08000be8   0x0000001c   Code   RO         2368    i.TIM_OC2PreloadConfig  hk32f030m_tim.o
+    0x08000c04   0x08000c04   0x000000a0   Code   RO         2370    i.TIM_OC3Init       hk32f030m_tim.o
+    0x08000ca4   0x08000ca4   0x0000001c   Code   RO         2373    i.TIM_OC3PreloadConfig  hk32f030m_tim.o
+    0x08000cc0   0x08000cc0   0x00000078   Code   RO         2375    i.TIM_OC4Init       hk32f030m_tim.o
+    0x08000d38   0x08000d38   0x0000001c   Code   RO         2377    i.TIM_OC4PreloadConfig  hk32f030m_tim.o
+    0x08000d54   0x08000d54   0x00000004   Code   RO         2392    i.TIM_SetCompare1   hk32f030m_tim.o
+    0x08000d58   0x08000d58   0x00000004   Code   RO         2393    i.TIM_SetCompare2   hk32f030m_tim.o
+    0x08000d5c   0x08000d5c   0x00000004   Code   RO         2395    i.TIM_SetCompare4   hk32f030m_tim.o
+    0x08000d60   0x08000d60   0x00000054   Code   RO         2402    i.TIM_TimeBaseInit  hk32f030m_tim.o
+    0x08000db4   0x08000db4   0x00000040   Code   RO          472    i.USART1_IRQHandler  drv_usart.o
+    0x08000df4   0x08000df4   0x00000004   Code   RO         2868    i.USART_ClearFlag   hk32f030m_usart.o
+    0x08000df8   0x08000df8   0x00000018   Code   RO         2872    i.USART_Cmd         hk32f030m_usart.o
+    0x08000e10   0x08000e10   0x00000014   Code   RO         2878    i.USART_GetFlagStatus  hk32f030m_usart.o
+    0x08000e24   0x08000e24   0x0000004e   Code   RO         2879    i.USART_GetITStatus  hk32f030m_usart.o
+    0x08000e72   0x08000e72   0x00000042   Code   RO         2881    i.USART_ITConfig    hk32f030m_usart.o
+    0x08000eb4   0x08000eb4   0x000000d8   Code   RO         2882    i.USART_Init        hk32f030m_usart.o
+    0x08000f8c   0x08000f8c   0x0000000a   Code   RO         2894    i.USART_ReceiveData  hk32f030m_usart.o
+    0x08000f96   0x08000f96   0x00000008   Code   RO         2899    i.USART_SendData    hk32f030m_usart.o
+    0x08000f9e   0x08000f9e   0x0000001c   Code   RO          535    i.__ARM_common_switch8  drv_pwm.o
+    0x08000fba   0x08000fba   0x00000002   PAD
+    0x08000fbc   0x08000fbc   0x00000030   Code   RO          356    i.adc_gpio_init     drv_adc.o
+    0x08000fec   0x08000fec   0x0000005c   Code   RO          357    i.adc_init          drv_adc.o
+    0x08001048   0x08001048   0x00000028   Code   RO          606    i.charge_detection_gpio_init  charge_detection.o
+    0x08001070   0x08001070   0x00000078   Code   RO          607    i.charge_detection_process  charge_detection.o
+    0x080010e8   0x080010e8   0x00000020   Code   RO          358    i.get_adc           drv_adc.o
+    0x08001108   0x08001108   0x00000028   Code   RO          359    i.get_adc_average   drv_adc.o
+    0x08001130   0x08001130   0x00000044   Code   RO          546    i.get_bat_leave     sys_power.o
+    0x08001174   0x08001174   0x00000018   Code   RO          608    i.get_charge_status  charge_detection.o
+    0x0800118c   0x0800118c   0x0000000c   Code   RO         3456    i.get_sys_tick      sys_time.o
+    0x08001198   0x08001198   0x00000018   Code   RO         3457    i.is_timeout        sys_time.o
+    0x080011b0   0x080011b0   0x0000002a   Code   RO          320    i.main              main.o
+    0x080011da   0x080011da   0x00000002   PAD
+    0x080011dc   0x080011dc   0x0000003c   Code   RO          649    i.modulator_ctrl    modulator.o
+    0x08001218   0x08001218   0x00000164   Code   RO          650    i.modulator_process  modulator.o
+    0x0800137c   0x0800137c   0x00000028   Code   RO          547    i.pd_usb_gpio_init  sys_power.o
+    0x080013a4   0x080013a4   0x0000008c   Code   RO          508    i.pwm_gpio_init     drv_pwm.o
+    0x08001430   0x08001430   0x000000f8   Code   RO          509    i.pwm_init          drv_pwm.o
+    0x08001528   0x08001528   0x00000018   Code   RO            3    i.read_data         system_process.o
+    0x08001540   0x08001540   0x00000068   Code   RO         3363    i.ring_buf_get      sys_ringbuffer.o
+    0x080015a8   0x080015a8   0x00000020   Code   RO         3364    i.ring_buf_init     sys_ringbuffer.o
+    0x080015c8   0x080015c8   0x0000006c   Code   RO         3366    i.ring_buf_put      sys_ringbuffer.o
+    0x08001634   0x08001634   0x00000048   Code   RO          609    i.send_charge_detection  charge_detection.o
+    0x0800167c   0x0800167c   0x0000005c   Code   RO          510    i.set_pwm_duty_cycle  drv_pwm.o
+    0x080016d8   0x080016d8   0x00000018   Code   RO            4    i.slave_init        system_process.o
+    0x080016f0   0x080016f0   0x00000014   Code   RO            5    i.slave_put         system_process.o
+    0x08001704   0x08001704   0x000000a4   Code   RO            6    i.slave_recv_data   system_process.o
+    0x080017a8   0x080017a8   0x000000f4   Code   RO            7    i.slave_recv_process  system_process.o
+    0x0800189c   0x0800189c   0x00000038   Code   RO            8    i.slave_send_data   system_process.o
+    0x080018d4   0x080018d4   0x00000018   Code   RO          401    i.sys_board_gpio_init  drv_gpio.o
+    0x080018ec   0x080018ec   0x00000030   Code   RO          548    i.sys_power_gpio_init  sys_power.o
+    0x0800191c   0x0800191c   0x0000004c   Code   RO         3410    i.sys_task_create   sys_task.o
+    0x08001968   0x08001968   0x00000038   Code   RO         3411    i.sys_task_process  sys_task.o
+    0x080019a0   0x080019a0   0x00000006   Code   RO         3412    i.sys_task_start    sys_task.o
+    0x080019a6   0x080019a6   0x00000002   PAD
+    0x080019a8   0x080019a8   0x00000010   Code   RO         3458    i.sys_tick_count    sys_time.o
+    0x080019b8   0x080019b8   0x00000010   Code   RO          549    i.system_power_disable  sys_power.o
+    0x080019c8   0x080019c8   0x00000010   Code   RO          550    i.system_power_enable  sys_power.o
+    0x080019d8   0x080019d8   0x00000008   Code   RO            9    i.system_process    system_process.o
+    0x080019e0   0x080019e0   0x0000000e   Code   RO          551    i.system_usb_disable  sys_power.o
+    0x080019ee   0x080019ee   0x0000000e   Code   RO          552    i.system_usb_enable  sys_power.o
+    0x080019fc   0x080019fc   0x00000040   Code   RO          428    i.systick_init      drv_systick.o
+    0x08001a3c   0x08001a3c   0x0000004c   Code   RO          321    i.task_start        main.o
+    0x08001a88   0x08001a88   0x000000bc   Code   RO          473    i.uart_init         drv_usart.o
+    0x08001b44   0x08001b44   0x00000044   Code   RO          474    i.usart_send_bytes  drv_usart.o
+    0x08001b88   0x08001b88   0x00000028   Data   RO         1923    .constdata          hk32f030m_rcc.o
+    0x08001bb0   0x08001bb0   0x00000020   Data   RO         3680    Region$$Table       anon$$obj.o
+
+
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08001bd0, Size: 0x000005e0, Max: 0x00001000, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000000   0x08001bd0   0x00000008   Data   RW           11    .data               system_process.o
+    0x20000008   0x08001bd8   0x00000003   Data   RW          610    .data               charge_detection.o
+    0x2000000b   0x08001bdb   0x00000001   PAD
+    0x2000000c   0x08001bdc   0x00000012   Data   RW          651    .data               modulator.o
+    0x2000001e   0x08001bee   0x00000002   PAD
+    0x20000020   0x08001bf0   0x00000004   Data   RW         3414    .data               sys_task.o
+    0x20000024   0x08001bf4   0x00000002   Data   RW         3459    .data               sys_time.o
+    0x20000026   0x08001bf6   0x00000002   PAD
+    0x20000028        -       0x0000011a   Zero   RW           10    .bss                system_process.o
+    0x20000142   0x08001bf6   0x00000002   PAD
+    0x20000144        -       0x0000003c   Zero   RW          322    .bss                main.o
+    0x20000180        -       0x00000060   Zero   RW         3551    .bss                c_p.l(libspace.o)
+    0x200001e0        -       0x00000200   Zero   RW         3230    HEAP                keil_startup_hk32f030m.o
+    0x200003e0        -       0x00000200   Zero   RW         3229    STACK               keil_startup_hk32f030m.o
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+       256         26          0          3          0       2176   charge_detection.o
+       212         16          0          0          0       2143   drv_adc.o
+        24          0          0          0          0        470   drv_gpio.o
+       508         34          0          0          0       1852   drv_pwm.o
+       192         22          0          0          0       7921   drv_systick.o
+       320         28          0          0          0       2383   drv_usart.o
+       196          8          0          0          0       5268   hk32f030m_adc.o
+       262          0          0          0          0       3743   hk32f030m_gpio.o
+        10          0          0          0          0     187989   hk32f030m_it.o
+       148         10          0          0          0       1634   hk32f030m_misc.o
+       428         42         40          0          0       4097   hk32f030m_rcc.o
+       830        140          0          0          0       9460   hk32f030m_tim.o
+       426         12          0          0          0       6175   hk32f030m_usart.o
+        56         26        192          0       1024        696   keil_startup_hk32f030m.o
+       118         24          0          0         60       1183   main.o
+       416         24          0         18          0       2033   modulator.o
+       216         22          0          0          0       3391   sys_power.o
+       244          0          0          0          0       2530   sys_ringbuffer.o
+       138         12          0          4          0       2314   sys_task.o
+        52         10          0          2          0       1669   sys_time.o
+       384         40          0          0          0       2609   system_hk32f030m.o
+       540         56          0          8        282     188999   system_process.o
+
+    ----------------------------------------------------------------------
+      5990        552        264         40       1368     440735   Object Totals
+         0          0         32          0          0          0   (incl. Generated)
+        14          0          0          5          2          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+         8          0          0          0          0         68   __main.o
+         0          0          0          0          0          0   __rtentry.o
+        12          0          0          0          0          0   __rtentry2.o
+         6          0          0          0          0          0   __rtentry4.o
+        60          8          0          0          0          0   __scatter.o
+        26          0          0          0          0          0   __scatter_copy.o
+        28          0          0          0          0          0   __scatter_zi.o
+       346          0          0          0          0         92   aeabi_sdiv.o
+        16          0          0          0          0         68   exit.o
+         6          0          0          0          0        136   heapauxi.o
+         0          0          0          0          0          0   indicate_semi.o
+         2          0          0          0          0          0   libinit.o
+         2          0          0          0          0          0   libinit2.o
+         2          0          0          0          0          0   libshutdown.o
+         2          0          0          0          0          0   libshutdown2.o
+         8          4          0          0         96         68   libspace.o
+        64          0          0          0          0        108   rt_memclr.o
+       186          0          0          0          0        144   rt_memcpy.o
+         2          0          0          0          0          0   rtexit.o
+        10          0          0          0          0          0   rtexit2.o
+        12          4          0          0          0         60   sys_exit.o
+        62          0          0          0          0         80   sys_stackheap_outer.o
+         2          0          0          0          0         68   use_no_semi.o
+
+    ----------------------------------------------------------------------
+       866         16          0          0         96        892   Library Totals
+         4          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
+
+       862         16          0          0         96        892   c_p.l
+
+    ----------------------------------------------------------------------
+       866         16          0          0         96        892   Library Totals
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+      6856        568        264         40       1464     437339   Grand Totals
+      6856        568        264         40       1464     437339   ELF Image Totals
+      6856        568        264         40          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                 7120 (   6.95kB)
+    Total RW  Size (RW Data + ZI Data)              1504 (   1.47kB)
+    Total ROM Size (Code + RO Data + RW Data)       7160 (   6.99kB)
+
+==============================================================================
+
