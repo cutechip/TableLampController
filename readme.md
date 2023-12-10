@@ -11,3 +11,10 @@ mqtt中间件：emqx
 微信小程序:uniapp访问云平台的接口调试设备
 建模：soildwork 
 
+
+
+
+环境使用的是 Vscode + Platform
+因为使用了文件系统编译是记得
+点击Build Filedystem Image 然后 Upload FileSystem Image 
+MQTT服务器目前使用的是我的 云平台目前还未对外开放， 可以连接到一些开源的MQTT服务器 如Emqx等。

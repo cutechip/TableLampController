@@ -1,0 +1,11 @@
+{
+    "nightStart": false,
+    "radar": true,
+    "delayOff": 0,
+    "usbOut": false,
+    "word": false,
+    "port1":{"switch": true, "brightness": 100, "warm": 100},
+    "port2":{"switch": false, "brightness": 100, "warm": 100},
+    "port3":{"switch": false, "brightness": 100, "warm": 100},
+    "port4":{"switch": false, "brightness": 100, "warm": 100}
+}
