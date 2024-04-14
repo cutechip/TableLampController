@@ -1,0 +1,7 @@
+Change Component Comment : Designator=R42 Old Comment=2M New Comment=4M7
+Change Component Comment : Designator=R11 Old Comment=47K New Comment=820R
+Change Component Comment : Designator=R13 Old Comment=100K New Comment=2K
+Change Component Comment : Designator=TP5 Old Comment=G0 New Comment=RST
+Change Component Comment : Designator=TP1 Old Comment=U1TX New Comment=RX
+Added Member To Class: ClassName=Power-V1.1 Member=Component C29 22uF
+Added Room: Name=Power-V1.1

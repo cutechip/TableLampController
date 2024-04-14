@@ -94,22 +94,22 @@ void set_pwm_duty_cycle(uint8_t pwm_num, uint8_t duty)
 			TIM_SetCompare4(TIM2, duty);	
 		break;
 		case 3:
-//			TIM_SetCompare3(TIM2, duty);	
+			TIM_SetCompare1(TIM1, duty);	
 		break;
 		case 4:
-//			TIM_SetCompare1(TIM2, duty);	
+			TIM_SetCompare3(TIM2, duty);	
 		break;
 		case 5:
-			TIM_SetCompare1(TIM1, duty);	
+			TIM_SetCompare3(TIM1, duty);	
 		break;
 		case 6:
 			TIM_SetCompare2(TIM1, duty);	
 		break;
 		case 7:
-//			TIM_SetCompare3(TIM1, duty);	
+			TIM_SetCompare2(TIM2, duty);	
 		break;
 		case 8:
-//			TIM_SetCompare3(TIM1, duty);	
+			TIM_SetCompare4(TIM1, duty);	
 		break;
 	}
 }
