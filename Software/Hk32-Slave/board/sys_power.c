@@ -6,13 +6,13 @@
 void sys_power_gpio_init()
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
-	RCC_AHBPeriphClockCmd( RCC_AHBPeriph_GPIOD, ENABLE);
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;	
+	RCC_AHBPeriphClockCmd( RCC_AHBPeriph_GPIOC, ENABLE);
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;	
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz; 
-	GPIO_Init(GPIOD, &GPIO_InitStructure);	
-	system_power_disable();
+	GPIO_Init(GPIOC, &GPIO_InitStructure);	
+	system_power_enable();
 }
 
 
@@ -35,12 +35,12 @@ void pd_usb_gpio_init()
  */
 void system_power_disable()
 {
-	GPIO_ResetBits(GPIOD, GPIO_Pin_4);
+	GPIO_ResetBits(GPIOC, GPIO_Pin_7);
 }
 
 void system_power_enable()
 {
-	GPIO_SetBits(GPIOD, GPIO_Pin_4);
+	GPIO_SetBits(GPIOC, GPIO_Pin_7);
 }
 
 

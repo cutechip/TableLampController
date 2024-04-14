@@ -2,18 +2,16 @@
 
 
 
-// 控制灯光任务
+
 sys_task_t modulator_task;
-
-// 系统主任务，负责收发控制命令
 sys_task_t system_task;
-
-// 充电检测任务
 sys_task_t charge_detection_task;
 
+void test_process()
+{
+	
+}
 
-
-// 任务创建
 void task_start()
 {
 	sys_task_create(&charge_detection_task, charge_detection_process, 50);

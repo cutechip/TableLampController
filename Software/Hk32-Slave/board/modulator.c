@@ -38,14 +38,10 @@ void modulator_ctrl(uint8_t num, uint8_t val1, uint8_t val2)
 }
 
 
-
-// 控制灯光亮度
 void modulator_process()
 {
 	uint8_t i = 0;
 	uint8_t refresh_flag = 0;
-	
-	// 共4个端口，判断目标值比现在值大或者小就进行缓加缓减操作 可达到缓慢开关灯效果
 	for (i = 0; i < 4; i++)
 	{
 		refresh_flag = 0;

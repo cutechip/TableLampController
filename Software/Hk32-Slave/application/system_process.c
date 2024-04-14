@@ -65,7 +65,7 @@ void slave_recv_data(uint8_t mode)
 	
 	if (mode == OBJ_4)
 	{
-//		modulator_ctrl(4, recv_buf[0], recv_buf[1]);
+		modulator_ctrl(4, recv_buf[0], recv_buf[1]);
 		return ;
 	}
 	

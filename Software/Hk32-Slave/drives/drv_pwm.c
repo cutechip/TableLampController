@@ -10,14 +10,14 @@ void pwm_gpio_init()
 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOC | RCC_AHBPeriph_GPIOD, ENABLE);
 	
 	
-	GPIO_PinAFConfig(GPIOC, GPIO_PinSource3, GPIO_AF_4);
 	GPIO_PinAFConfig(GPIOC, GPIO_PinSource4, GPIO_AF_4);
 	GPIO_PinAFConfig(GPIOC, GPIO_PinSource5, GPIO_AF_4);
 	GPIO_PinAFConfig(GPIOC, GPIO_PinSource6, GPIO_AF_4);
 	
 	GPIO_PinAFConfig(GPIOD, GPIO_PinSource1, GPIO_AF_3);
+	GPIO_PinAFConfig(GPIOD, GPIO_PinSource2, GPIO_AF_3);
 	GPIO_PinAFConfig(GPIOD, GPIO_PinSource3, GPIO_AF_3);
-	GPIO_PinAFConfig(GPIOC, GPIO_PinSource7, GPIO_AF_3);
+	GPIO_PinAFConfig(GPIOD, GPIO_PinSource4, GPIO_AF_3);
 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
@@ -25,10 +25,10 @@ void pwm_gpio_init()
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
 	GPIO_InitStructure.GPIO_Schmit = GPIO_Schmit_Disable;
 	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3 | GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_6;
 	GPIO_Init(GPIOC, &GPIO_InitStructure);
 	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1 | GPIO_Pin_3;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3 | GPIO_Pin_4;
 	GPIO_Init(GPIOD, &GPIO_InitStructure);
 }
 
@@ -76,12 +76,12 @@ void pwm_init()
 	TIM_OC2PreloadConfig(TIM1, TIM_OCPreload_Enable);
 	TIM_OC3Init(TIM1, &TIM_OCInitStructure);
 	TIM_OC3PreloadConfig(TIM1, TIM_OCPreload_Enable);
+	TIM_OC4Init(TIM1, &TIM_OCInitStructure);
+	TIM_OC4PreloadConfig(TIM1, TIM_OCPreload_Enable);
 	TIM_Cmd(TIM1, ENABLE);	
 	TIM_CtrlPWMOutputs(TIM1, ENABLE);
 }
 
-
-// 端口 2 4在改版中，下次更新会重新更改
 void set_pwm_duty_cycle(uint8_t pwm_num, uint8_t duty)
 {
 	if (duty > 100) duty = 100;
