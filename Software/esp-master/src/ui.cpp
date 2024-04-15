@@ -13,7 +13,7 @@
 #include <sys_config.h>
 #include <NetData.h>
 #include <slave.h>
-
+#include <bat.h>
 
 
 U8G2_SSD1306_128X64_NONAME_F_SW_I2C u8g2(U8G2_R0, /* clock=*/ 10, /* data=*/ 9, /* reset=*/ U8X8_PIN_NONE);   // ESP32 Thing, pure SW emulated I2C
@@ -156,7 +156,7 @@ const char * get_week(uint8_t week)
     switch (week)
     {
     case 0:
-        return "星期天";
+        return "星期日";
     break;
     case 1:
         return "星期一";
@@ -223,7 +223,7 @@ void show_home()
     u8g2.setFont(u8g2_font_siji_t_6x10);
     u8g2.clearBuffer();
     if (get_wifi_connect_status() == WIFICONFIG_CONNECT_SUCCESS) u8g2.drawGlyph(1, 12, 0xe21a);
-    u8g2.drawGlyph(116, 12, 0xe242 + (get_bat_power() * 2));
+    u8g2.drawGlyph(116, 12, 0xe242 + (get_bat_level() * 2));
     u8g2.setFont(u8g2_font_freedoomr25_tn);
     time_t timep = getNtpTime();
     struct tm *p;

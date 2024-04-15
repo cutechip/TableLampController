@@ -23,7 +23,7 @@ bool get_net_word()
     {
         return false;
     }
-    String url = "http://192.168.1.201:5001/getWord";
+    String url = "http://124.222.183.236:5050/getWord";
     httpClient.begin(wifiClient, url);
     int httpResponseCode = httpClient.GET();
     if(httpResponseCode > 0) {
@@ -58,7 +58,7 @@ bool get_net_word()
  */
 void get_weather_net_data()
 {
-    String url = "http://192.168.1.201:5001/getWeather";
+    String url = "http://124.222.183.236:5050/getWeather";
     httpClient.begin(wifiClient, url);
     int httpResponseCode = httpClient.GET();
     if(httpResponseCode > 0) {

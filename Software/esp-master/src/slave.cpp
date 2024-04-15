@@ -19,7 +19,6 @@ uint32_t slave_tick = 0;
 uint8_t slave_recv_buf[16];
 uint8_t recv_index = 0;
 uint8_t send_buf[5] = {0xAA, 0x00, 0x00, 0x00, 0x55};
-uint8_t bat_value = 4;
 
 
 
@@ -28,11 +27,6 @@ uint8_t bat_value = 4;
 
 void slave_recv_data(uint8_t mode)
 {
-    if (mode == BAT_VALUE)
-	{
-		Serial1.printf("get bat..");
-		bat_value = slave_recv_buf[0];
-	}
 }
 
 
@@ -89,7 +83,7 @@ void slave_task()
 	if (millis() - get_data_tick > 60000)
 	{
 		get_data_tick = millis();
-		slave_get_bat();
+
 	}
 }
 
@@ -141,21 +135,3 @@ void slave_usb_pdout(uint8_t status)
     Serial.write(send_buf, sizeof(send_buf));
 }
 
-
-void slave_get_bat()
-{
-	send_buf[1] = BAT_VALUE;
-	send_buf[2] = 0x00;
-    send_buf[3] = 0x00;
-    Serial.write(send_buf, sizeof(send_buf));
-}
-
-
-/**
- * @brief 获取电量
- * 
- */
-uint8_t get_bat_power()
-{
-	return bat_value;
-}

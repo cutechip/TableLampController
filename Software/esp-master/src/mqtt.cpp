@@ -8,7 +8,7 @@
 
 #define PRODUCT_KEY     "woBxKx335QA6"
 #define CUSTOM_STRING   "device"
-#define MQTT_SERVER     "192.168.1.201"
+#define MQTT_SERVER     "mqtt.cutechip.cn"
 
 
 

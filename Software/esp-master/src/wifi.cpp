@@ -92,6 +92,5 @@ void wifi_init()
 {
     wiFiManager.setHostname("SmartModulator");
     wiFiManager.setConnectCallback(wifi_connect_callback);
-    wiFiManager.setTimeout(180);
-    
+    wiFiManager.setTimeout(180);    
 }
